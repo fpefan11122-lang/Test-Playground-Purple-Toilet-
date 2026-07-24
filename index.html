@@ -77,227 +77,254 @@
   }
   #logsOverlay.show{ background:rgba(0,0,0,0.55); pointer-events:auto; }
   #logsBox{
-    width:82vw; max-width:420px; max-height:74vh;
+    width:84vw; max-width:420px; max-height:75vh;
     background:#0d0d0d;
     border-radius:14px;
     box-shadow:0 20px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,255,255,0.03);
-    padding:22px 20px;
+    padding:22px 20px 26px 20px;
     transform:scale(0.85) translateY(20px); opacity:0;
     transition:transform .32s cubic-bezier(.2,.9,.3,1.2), opacity .28s ease;
-    overflow-y:auto;
-    color:#fff;
+    overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y; color:#fff;
   }
   #logsOverlay.show #logsBox{ transform:scale(1) translateY(0); opacity:1; }
   #logsBox h2{ text-align:center; font-size:16px; letter-spacing:2px; margin:0 0 14px; color:#fff; }
-  #logsBox h3{ font-size:14px; margin:0 0 10px; color:#fff; }
-  #logsBox p{ font-size:13px; line-height:1.6; color:#e8e8e8; margin:0 0 16px; white-space:pre-line; }
+  #logsBox p{ font-size:13px; line-height:1.6; color:#e8e8e8; margin:0 0 20px; white-space:pre-line; }
   #logsCloseBtn{
-    display:block; margin:6px auto 0;
-    padding:10px 26px;
-    background:transparent; color:#fff;
-    border:2px solid #fff; border-radius:8px;
-    font-size:14px; font-weight:700; letter-spacing:1px;
-    cursor:pointer;
+    display:block; margin:10px auto 4px; padding:10px 26px; background:transparent; color:#fff;
+    border:2px solid #fff; border-radius:8px; font-size:14px; font-weight:700; letter-spacing:1px; cursor:pointer;
   }
   #logsCloseBtn:active{ transform:scale(0.94); }
 
   /* ---------- CHARACTER SELECT ---------- */
   #selectScreen{ background:#c9c9c9; z-index:20; }
   .select-frame{
-    width:94vw; height:88vh; max-width:520px;
-    background:#bdbdbd;
-    border:4px solid #fff;
-    border-radius:16px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.35);
-    display:flex; flex-direction:column;
-    padding:16px;
-    position:relative;
+    width:94vw; height:88vh; max-width:520px; background:#bdbdbd; border:4px solid #fff;
+    border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.35); display:flex; flex-direction:column;
+    padding:16px; position:relative; overflow-y:auto; overflow-x:hidden;
   }
   .scrap-counter{
-    position:absolute; top:14px; right:18px;
-    color:#fff; font-weight:800; font-size:15px;
-    text-shadow:0 2px 4px rgba(0,0,0,0.4);
-    z-index:5;
+    position:absolute; top:14px; right:18px; color:#fff; font-weight:800; font-size:15px;
+    text-shadow:0 2px 4px rgba(0,0,0,0.4); z-index:5;
   }
   .icons-row{
-    display:flex; justify-content:center; gap:6vw;
-    margin-top:14vh;
-    flex:1;
-    align-items:flex-start;
+    display:grid; grid-template-columns: repeat(3, auto); justify-content:center;
+    gap:18px 6vw; margin-top:14vh; align-items:start; padding-bottom: 20px;
   }
   .char-slot{ position:relative; width:24vw; max-width:120px; }
   .char-icon-wrap{
-    width:100%; aspect-ratio:1/1;
-    border-radius:16px;
-    overflow:hidden;
-    border:3px solid #fff;
-    background:#e2e2e2;
-    position:relative;
-    box-shadow:0 6px 14px rgba(0,0,0,0.25);
-    transition:filter .25s ease;
+    width:100%; aspect-ratio:1/1; border-radius:16px; overflow:hidden; border:3px solid #fff;
+    background:#e2e2e2; position:relative; box-shadow:0 6px 14px rgba(0,0,0,0.25); transition:filter .25s ease;
   }
   .char-icon-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
   .char-icon-wrap.dimmed{ filter:brightness(0.35); }
   .lock-badge{
-    position:absolute; bottom:4px; left:50%; transform:translateX(-50%);
-    background:rgba(0,0,0,0.7); color:#fff; font-size:10px; font-weight:700;
-    padding:2px 8px; border-radius:6px; white-space:nowrap;
+    position:absolute; bottom:4px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.7);
+    color:#fff; font-size:10px; font-weight:700; padding:2px 8px; border-radius:6px; white-space:nowrap;
   }
-  .char-name-label{
-    text-align:center; color:#222; font-size:12px; font-weight:700; margin-top:6px;
-  }
+  .char-name-label{ text-align:center; color:#222; font-size:12px; font-weight:700; margin-top:6px; }
   .char-actions{
-    position:absolute; inset:0;
-    display:none; align-items:center; justify-content:center; gap:6px;
-    flex-direction:column;
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center; gap:6px; flex-direction:column;
   }
   .char-actions.show{ display:flex; }
   .mini-btn{
-    width:80%; padding:6px 4px;
-    border:2px solid #fff; border-radius:6px;
-    font-size:11px; font-weight:800; letter-spacing:0.5px;
-    cursor:pointer;
+    width:80%; padding:6px 4px; border:2px solid #fff; border-radius:6px; font-size:11px; font-weight:800; letter-spacing:0.5px; cursor:pointer;
   }
   .mini-btn.play{ background:#33d17a; color:#08240f; }
   .mini-btn.info{ background:#000; color:#fff; }
+  .mini-btn.spawn{ background:#e67e22; color:#fff; }
 
   /* Info popup */
   #infoOverlay{
-    position:fixed; inset:0; background:rgba(0,0,0,0);
-    display:flex; align-items:center; justify-content:center;
-    z-index:55; pointer-events:none; transition:background .3s ease;
+    position:fixed; inset:0; background:rgba(0,0,0,0); display:flex; align-items:center; justify-content:center;
+    z-index:90; pointer-events:none; transition:background .3s ease;
   }
   #infoOverlay.show{ background:rgba(0,0,0,0.6); pointer-events:auto; }
   #infoBox{
-    width:82vw; max-width:400px;
-    background:#000; border:2px solid #fff; border-radius:12px;
-    padding:22px 18px; text-align:center;
-    transform:scale(0.85); opacity:0;
+    width:82vw; max-width:400px; max-height:80vh; background:#000; border:2px solid #fff; border-radius:12px;
+    padding:22px 18px; text-align:center; transform:scale(0.85); opacity:0;
     transition:transform .3s cubic-bezier(.2,.9,.3,1.2), opacity .25s ease;
+    overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y;
   }
   #infoOverlay.show #infoBox{ transform:scale(1); opacity:1; }
   #infoBox p{ color:#fff; font-size:13.5px; line-height:1.7; margin:0 0 16px; }
   #infoCloseBtn{
-    padding:9px 24px; background:transparent; color:#fff;
-    border:2px solid #fff; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer;
+    padding:9px 24px; background:transparent; color:#fff; border:2px solid #fff; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer;
   }
+
+  /* SPAWN PANEL */
+  #spawnPanelOverlay {
+    position:fixed; inset:0; background:rgba(0,0,0,0); display:flex; align-items:center; justify-content:center;
+    z-index:55; pointer-events:none; transition:background .3s ease;
+  }
+  #spawnPanelOverlay.show { background:rgba(0,0,0,0.5); pointer-events:auto; }
+  #spawnPanelBox {
+    width:85vw; max-width:450px; background:#bdbdbd; border:4px solid #fff; border-radius:16px;
+    padding:16px; text-align:center; transform:scale(0.85); opacity:0; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform .3s cubic-bezier(.2,.9,.3,1.2), opacity .25s ease;
+    display:flex; flex-direction:column; gap:10px; max-height: 80vh; overflow-y:auto;
+  }
+  #spawnPanelOverlay.show #spawnPanelBox { transform:scale(1); opacity:1; }
+  .pvp-toggle-row {
+    display:flex; align-items:center; justify-content:center; gap:10px; background:#000; color:#fff;
+    padding:8px; border-radius:8px; border:2px solid #fff; font-weight:800; font-size:14px; text-transform:uppercase;
+  }
+  .pvp-cube {
+    width:24px; height:24px; background:red; border:2px solid #fff; border-radius:4px; cursor:pointer;
+    transition:background .2s;
+  }
+  .pvp-cube.on { background:#2ecc40; }
+  .clear-dummies-btn {
+    background:#c0392b; color:#fff; border:2px solid #fff; padding:10px; border-radius:8px;
+    font-weight:800; font-size:13px; cursor:pointer; text-transform:uppercase;
+  }
+  .clear-dummies-btn:active { transform:scale(0.95); }
 
   /* ---------- GAME SCREEN ---------- */
   #gameScreen{ background:#fff; z-index:30; }
   .arena{
-    position:absolute; inset:0; width:100%; height:100%;
-    overflow:hidden; background:linear-gradient(#ffffff,#f4f4f4);
+    position:absolute; inset:0; width:100%; height:100%; overflow:hidden; background:linear-gradient(#ffffff,#f4f4f4);
   }
   .floor{
-    position:absolute; left:0; right:0; bottom:0; height:22vh;
-    background:#111;
-    box-shadow:0 -6px 18px rgba(0,0,0,0.15) inset;
+    position:absolute; left:0; right:0; bottom:0; height:22vh; background:#111; box-shadow:0 -6px 18px rgba(0,0,0,0.15) inset;
   }
   .hud-scrap{
-    position:absolute; top:16px; right:18px; color:#111; font-weight:800; font-size:15px; z-index:6;
-    text-shadow:0 1px 2px rgba(255,255,255,0.6);
-  }
-  .backbtn{
-    position:absolute; top:14px; left:14px; z-index:6;
-    background:rgba(0,0,0,0.75); color:#fff; border:2px solid #fff; border-radius:8px;
-    padding:8px 14px; font-size:13px; font-weight:700; cursor:pointer;
+    position:absolute; top:16px; right:18px; color:#111; font-weight:800; font-size:15px; z-index:6; text-shadow:0 1px 2px rgba(255,255,255,0.6);
   }
 
-  /* ---------- NEW: HOME BUTTON IN GAME TOP-LEFT ---------- */
   .home-btn{
-    position:absolute; top:14px; left:14px; z-index:6;
-    width:38px; height:38px;
-    background:#0a0a0a; border:2px solid #fff; border-radius:4px;
-    cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    position:absolute; top:14px; left:14px; z-index:6; width:38px; height:38px; background:#0a0a0a; border:2px solid #fff; border-radius:4px;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3);
   }
   .home-btn:active{ transform:scale(0.92); }
   .home-btn svg{ width:18px; height:18px; fill:#fff; }
+  
+  #spawnPanelOpenBtn {
+    top: 60px; font-weight:900; color:#fff; font-size:14px; letter-spacing:1px;
+  }
 
   .move-controls{
-    position:absolute; left:14px; bottom:14px; z-index:7;
-    display:flex; gap:10px;
+    position:absolute; left:5px; bottom:14px; z-index:17; display:flex; gap:6px;
   }
   .move-btn{
-    width:56px; height:56px; border-radius:50%;
-    background:rgba(255,255,255,0.85); border:2px solid #000;
-    display:flex; align-items:center; justify-content:center;
-    font-size:22px; font-weight:900; color:#000;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.85); border:2px solid #000;
+    display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; color:#000; box-shadow:0 4px 10px rgba(0,0,0,0.2);
   }
   .move-btn:active{ background:rgba(220,220,220,0.9); transform:scale(0.92); }
 
   .m1-btn{
-    position:absolute; top:16px; right:18px; margin-top:34px; z-index:7;
-    width:64px; height:64px;
+    position:absolute; top:16px; right:18px; margin-top:34px; z-index:17; width:64px; height:64px; cursor:pointer;
   }
   .m1-btn img{ width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
   .m1-btn.cooldown img{ filter:grayscale(1) brightness(0.7) drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
   .m1-btn:active img{ transform:scale(0.9); }
+  
+  #playerHpBarWrap {
+    position:absolute; right:18px; top:120px; width:64px; height:16px; background:#000; border:2px solid #fff;
+    border-radius:6px; z-index:17; display:none; overflow:hidden;
+  }
+  #playerHpBarInner {
+    width:100%; height:100%; background:#fff; transform-origin:left; transition:transform 0.2s;
+  }
+  #playerHpText {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:10px; font-weight:900; z-index:2; text-shadow:0 0 2px #000; mix-blend-mode:difference;
+  }
+
+  #throwBtn {
+    position:absolute; top:16px; right:95px; margin-top:34px; z-index:18; width:64px; height:64px;
+    background:#000; color:#fff; border:2px solid #fff; border-radius:8px; display:none; align-items:center; justify-content:center;
+    font-size:13px; font-weight:900; box-shadow:0 4px 10px rgba(0,0,0,0.4); cursor:pointer; text-transform:uppercase; letter-spacing:0.5px;
+  }
+  #throwBtn:active { transform:scale(0.9); }
 
   .ability-row{
-    position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-    display:flex; gap:10px; z-index:7;
+    position:absolute; bottom:14px; left:62%; transform:translateX(-50%); display:flex; gap:8px; z-index:17;
   }
   .ability-cube{
-    width:64px; height:64px; border-radius:10px;
-    background:#0a0a0a; border:2px solid #fff;
-    display:flex; align-items:center; justify-content:center;
-    color:#fff; font-size:9.5px; font-weight:800; text-align:center; line-height:1.15;
-    padding:4px;
-    position:relative; overflow:hidden;
+    width:58px; height:58px; border-radius:10px; background:#0a0a0a; border:2px solid #fff;
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:8.5px; font-weight:800; text-align:center; line-height:1.15;
+    padding:4px; position:relative; overflow:hidden; cursor:pointer;
   }
   .ability-cube .fill{
-    position:absolute; inset:0; background:#c0392b; opacity:0.85;
-    transform-origin:left; transform:scaleX(0);
+    position:absolute; inset:0; background:#c0392b; opacity:0.85; transform-origin:left; transform:scaleX(0);
   }
   .ability-cube .lbl{ position:relative; z-index:2; }
   .ability-cube.locked-red{ background:rgba(192,57,43,0.55); }
+  .ability-cube.locked-perm{ background:rgba(120,120,120,0.55); pointer-events:none; }
 
-  #dummy-wrap{
-    position:absolute; bottom:22vh; left:50%; transform:translate(-50%,0);
-    width:22vw; max-width:110px; z-index:4;
+  .dummy-wrap{
+    position:absolute; bottom:22vh; transform:translate(-50%,0); width:22vw; max-width:110px; z-index:4;
   }
-  #dummy-img{ width:100%; display:block; animation:dummySway 2.6s ease-in-out infinite; transform-origin:bottom center; }
+  .dummy-img{ width:100%; display:block; animation:dummySway 2.6s ease-in-out infinite; transform-origin:bottom center; }
   @keyframes dummySway{
     0%,100%{ transform:translateY(0) rotate(0deg); }
     50%{ transform:translateY(-4px) rotate(0.6deg); }
   }
   .dummy-hpbar-wrap{
-    position:absolute; left:50%; transform:translateX(-50%);
-    bottom:-14px; width:110%; height:10px;
-    background:#000; border:2px solid #fff; border-radius:4px;
-    overflow:hidden;
+    position:absolute; left:50%; transform:translateX(-50%); bottom:-14px; width:110%; height:10px;
+    background:#000; border:2px solid #fff; border-radius:4px; overflow:hidden;
   }
   .dummy-hpbar{
-    height:100%; width:100%; background:#2ecc40;
-    transform-origin:right; transition:transform .25s ease;
+    height:100%; width:100%; background:#2ecc40; transform-origin:right; transition:transform .25s ease;
   }
 
   #player-wrap{
-    position:absolute; bottom:22vh; left:50%;
-    width:20vw; max-width:100px; z-index:5;
-    transform:translate(-50%,0);
+    position:absolute; bottom:22vh; left:50%; width:20vw; max-width:100px; z-index:5; transform:translate(-50%,0);
   }
   #player-img{ width:100%; display:block; transform-origin:bottom center; }
 
-  .smoke-fx, .wave-fx, .light-fx, .teleport-fx, .knife-fx, .spark-fx{
-    position:absolute; pointer-events:none; z-index:8;
-    opacity:0;
+  .large-tv-on {
+    filter: drop-shadow(0 0 20px #3fb7ff) brightness(1.3);
   }
+  .dummy-grabbed {
+    animation: dummyScreamShake 0.1s infinite !important; z-index:6;
+  }
+  @keyframes dummyScreamShake {
+    0%,100% { transform: translate(-50%,0) rotate(0deg); }
+    25% { transform: translate(-52%,-2%) rotate(-4deg); }
+    75% { transform: translate(-48%,2%) rotate(4deg); }
+  }
+
+  .dummy-stunned .dummy-img{
+    filter:brightness(0) opacity(0.55);
+  }
+
+  #fireFlashOverlay{ position:absolute; inset:0; background:#ffd700; opacity:0; z-index:16; pointer-events:none; }
+  #blindOverlay{ position:absolute; inset:0; background:#fff; opacity:0; z-index:100; pointer-events:none; transition:opacity 2s ease-in; }
+  #blurOverlay{ position:absolute; inset:0; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); opacity:0; z-index:101; pointer-events:none; transition:opacity .3s ease; }
+  
+  #deathOverlay{ 
+    position:absolute; inset:0; background:#000; z-index:150; pointer-events:auto; opacity:0; display:none;
+    transition:opacity 2s ease;
+  }
+
+  /* Failure Mode Visuals */
+  #failureOverlay{ 
+    position:absolute; inset:0; background:rgba(200,0,0,0.25); z-index:99; pointer-events:none; opacity:0;
+    transition:opacity .1s ease;
+    mix-blend-mode: multiply;
+  }
+  .failure-noise {
+    background-image: repeating-radial-gradient( circle at 50% 50%, rgba(255, 0, 0, 0.4), transparent 2px );
+    background-size: 4px 4px;
+    animation: noiseAnim 0.1s infinite linear;
+  }
+  @keyframes noiseAnim {
+      0% { background-position: 0 0; }
+      100% { background-position: 10px 10px; }
+  }
+
+  .bullet-fx{ position:absolute; bottom:26vh; width:34px; z-index:9; pointer-events:none; }
+  .bullet-hit-fx{ position:absolute; width:70px; z-index:10; pointer-events:none; left:50%; bottom:50%; transform:translate(-50%, 50%); }
+
+  .smoke-fx, .wave-fx, .light-fx, .teleport-fx, .knife-fx, .spark-fx{ position:absolute; pointer-events:none; z-index:8; opacity:0; }
 
   .float-scrap-text{
-    position:absolute; left:50%; bottom:24vh; transform:translateX(-50%);
-    color:rgba(0,0,0,0.72); font-weight:800; font-size:16px;
-    pointer-events:none; z-index:9;
-    opacity:0;
+    position:absolute; left:50%; bottom:24vh; transform:translateX(-50%); color:rgba(0,0,0,0.72); font-weight:800; font-size:16px;
+    pointer-events:none; z-index:9; opacity:0;
   }
 
-  .hypno-overlay{
-    position:absolute; inset:0; background:#8e44ff; opacity:0; z-index:15; pointer-events:none;
-    transition:opacity .12s ease;
-  }
+  .hypno-overlay{ position:absolute; inset:0; background:#8e44ff; opacity:0; z-index:15; pointer-events:none; transition:opacity .12s ease; }
 
   @keyframes shake-tiny{
     0%,100%{ transform:translate(-50%,0) rotate(0deg); }
@@ -306,17 +333,25 @@
   }
   .shaking{ animation:shake-tiny .12s infinite; }
 
+  @keyframes shake-screen {
+      0%,100% { transform:translate(0,0); }
+      25% { transform:translate(-4px,-4px); }
+      50% { transform:translate(4px,2px); }
+      75% { transform:translate(-2px,4px); }
+  }
+  .screen-shake { animation: shake-screen 0.2s infinite; }
+  
+  @keyframes shake-screen-mega {
+      0%,100% { transform:translate(0,0); }
+      25% { transform:translate(-8px,-8px); }
+      50% { transform:translate(8px,4px); }
+      75% { transform:translate(-4px,8px); }
+  }
+  .screen-shake-mega { animation: shake-screen-mega 0.15s infinite; }
+
   #startupOverlay{
-    position:fixed; inset:0; background:#000; z-index:200;
-    display:flex; align-items:center; justify-content:center;
-    padding: 30px;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
-    line-height: 1.5;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity .6s ease;
+    position:fixed; inset:0; background:#000; z-index:200; display:flex; align-items:center; justify-content:center;
+    padding: 30px; text-align: center; color: #fff; font-size: 16px; line-height: 1.5; cursor: pointer; opacity: 1; transition: opacity .6s ease;
   }
 </style>
 </head>
@@ -325,7 +360,6 @@
 
   <div id="startupOverlay"></div>
 
-  <!-- MENU -->
   <div class="screen" id="menuScreen">
     <canvas id="particleCanvas"></canvas>
     <div class="menu-content">
@@ -337,19 +371,18 @@
     </div>
   </div>
 
-  <!-- LOGS OVERLAY -->
   <div id="logsOverlay">
     <div id="logsBox">
       <h2>BETA: ВЕРСИЯ</h2>
-      <h3>Что Добавлено:</h3>
-      <p>1) Три персонажа - CameraHare, SpeakerHare, TvHare.
-2) Разные способности каждому персу.
-3) Думми для тестирования абилок. Полезная шняга. Игра очень мала, поэтому не требуется ждать что-то масштабное. В следующей обнове добавим +4 больше перса, а также возможно больше способностей старым персам, а также самое лучшее: возможность поменять думми на другого скибиди хэр.</p>
+      <p>1) Было добавлено три новых перса: GuardianHare, LargeTvHare, SpeakerStriderHare. Не добавили последнего +1 перса, однако вместо него Мы обещаем в следующей обнове добавить раздел титанов.
+
+2) Чутка поправили баги персов, звуки персов.
+
+3) OP: Добавили специальную панель, которая способна заменить думми на другого, а также возможность очистить всех думми. Было добавлено всего-лишь +3 новых думми.</p>
       <button id="logsCloseBtn">Ясно</button>
     </div>
   </div>
 
-  <!-- CHARACTER SELECT -->
   <div class="screen" id="selectScreen">
     <div class="select-frame">
       <div class="scrap-counter">Скрэпы: <span id="scrapCount">0</span></div>
@@ -357,7 +390,17 @@
     </div>
   </div>
 
-  <!-- INFO OVERLAY -->
+  <div id="spawnPanelOverlay">
+    <div id="spawnPanelBox">
+      <div class="pvp-toggle-row">
+        PVP режим — <div class="pvp-cube" id="pvpToggleBtn"></div>
+      </div>
+      <div class="clear-dummies-btn" id="clearDummiesBtn">Очистить Всех Думми</div>
+      <div class="icons-row" id="spawnIconsRow" style="margin-top:10px; padding-bottom:0;"></div>
+      <button id="spawnPanelCloseBtn" class="menu-btn" style="width:100%; max-width:none; padding:10px; font-size:14px; margin-top:10px; background:#000; color:#fff;">Закрыть</button>
+    </div>
+  </div>
+
   <div id="infoOverlay">
     <div id="infoBox">
       <p id="infoText"></p>
@@ -365,19 +408,22 @@
     </div>
   </div>
 
-  <!-- GAME SCREEN -->
   <div class="screen" id="gameScreen">
     <div class="arena" id="arena">
       <div class="floor"></div>
       <button class="home-btn" id="homeBtn" title="В главное меню">
         <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       </button>
+      <button class="home-btn" id="spawnPanelOpenBtn">S.P</button>
       <div class="hud-scrap">Скрэпы: <span id="scrapCountGame">0</span></div>
 
-      <div id="dummy-wrap">
-        <img id="dummy-img" src="https://www.dropbox.com/scl/fi/zcztx2f100zuocvxhwkwl/IMG_20260721_010007_608.png?rlkey=hxnp5tg6p7awdfcx59ag8raxf&st=epkio9le&raw=1">
-        <div class="dummy-hpbar-wrap"><div class="dummy-hpbar" id="dummyHpBar"></div></div>
-      </div>
+      <div id="fireFlashOverlay"></div>
+      <div id="blindOverlay"></div>
+      <div id="blurOverlay"></div>
+      <div id="failureOverlay"></div>
+      <div id="deathOverlay"></div>
+
+      <div id="dummiesContainer"></div>
 
       <div id="player-wrap">
         <img id="player-img" src="">
@@ -386,8 +432,14 @@
       <div class="hypno-overlay" id="hypnoOverlay"></div>
 
       <div class="m1-btn" id="m1Btn"><img src="https://www.dropbox.com/scl/fi/ihxykf2at0b9c13jv57bv/M1.png?rlkey=ngx90kkbcamtn2cz2bxutjq1y&st=ccisx695&raw=1"></div>
+      <div id="playerHpBarWrap">
+        <div id="playerHpBarInner"></div>
+        <div id="playerHpText">100 ХП</div>
+      </div>
+      
+      <div id="throwBtn">Throw</div>
 
-      <div class="move-controls">
+      <div class="move-controls" id="moveControls">
         <div class="move-btn" id="moveLeftBtn">&#8592;</div>
         <div class="move-btn" id="moveRightBtn">&#8594;</div>
       </div>
@@ -398,7 +450,6 @@
 
 </div>
 
-<!-- AUDIO ELEMENTS -->
 <audio id="sfxClick" src="https://www.dropbox.com/scl/fi/h16hif4fak8mkdke5i2ur/universfield-menu-click-147357.mp3?rlkey=6u0fjunk65k8smarq1vbphv5z&st=l0iar2p0&raw=1" preload="auto"></audio>
 <audio id="menuMusic" src="https://www.dropbox.com/scl/fi/ajnp5dqj108h44lorbkvp/13-speakerman-anthem-original-everbody-wants-to-rule-the-world.mp3?rlkey=8du2b77i02eimji5ncacc537p&st=ys49rkn0&raw=1" loop preload="auto"></audio>
 
@@ -425,6 +476,38 @@
 <audio id="sfxKnife2" src="https://www.dropbox.com/scl/fi/w9nqf9985wkfm3qa6evw8/lv_0_20260721011715.mp3?rlkey=xfkrrwuwlg0ih4m9woys1r56t&st=fgof6b5m&raw=1" preload="auto"></audio>
 <audio id="sfxKnife3" src="https://www.dropbox.com/scl/fi/yo1uu7vycmc3cby8lwb9e/lv_0_20260721011651.mp3?rlkey=xgn81ikcnif43cu1lzqm7zlfj&st=9hbkmmih&raw=1" preload="auto"></audio>
 
+<audio id="sfxBlock" src="https://www.dropbox.com/scl/fi/58z0r8u56ji3aiebjxdzr/VID_20260722_154819_882.mp3?rlkey=hc8liqc79xgj0cem4z2xha7zf&st=d8t2m5ai&raw=1" preload="auto"></audio>
+<audio id="sfxBlockCounter" src="https://www.dropbox.com/scl/fi/xdj9flglj5ownsgo70kem/VID_20260722_154819_724.mp3?rlkey=teqav9wqaqjopg0qq32s1vi44&st=vx1avkex&raw=1" preload="auto"></audio>
+<audio id="sfxFire" src="https://www.dropbox.com/scl/fi/3ojcz0mvh5f5bquph5of1/pump-shotgun-fortnite-loud.mp3?rlkey=xexohegwxepqfnzxmb3g4qtl3&st=x7m0p04b&raw=1" preload="auto"></audio>
+
+<audio id="sfxHeavyPunch" src="https://www.dropbox.com/scl/fi/5bqwx5k7zzcnlw3fjmrvs/VID_20260722_154914_538.mp3?rlkey=3rk8848cvaerw1v9gi3pbrvx8&st=xxkp6det&raw=1" preload="auto"></audio>
+<audio id="sfxGrabMiss" src="https://www.dropbox.com/scl/fi/cykof47hcmxdmozkd2qf5/VID_20260722_154819_611.mp3?rlkey=jyixyh7dhnxhp6dgxpk3lseea&st=5wl9ht6b&raw=1" preload="auto"></audio>
+<audio id="sfxGrabHit" src="https://www.dropbox.com/scl/fi/58z0r8u56ji3aiebjxdzr/VID_20260722_154819_882.mp3?rlkey=hc8liqc79xgj0cem4z2xha7zf&st=y6tkqaon&raw=1" preload="auto"></audio>
+<audio id="sfxScreamLoop" src="https://www.dropbox.com/scl/fi/s0n5p99y6w2xfodu07bq7/VID_20260722_154914_273.mp3?rlkey=deiejabntaxc09em0l1bp4l8x&st=5a8zllb1&raw=1" loop preload="auto"></audio>
+<audio id="sfxThrow" src="https://www.dropbox.com/scl/fi/cgqarxkshb3ls6sxotxre/VID_20260722_154819_738.mp3?rlkey=fmj4u9hybxpyof569c7yz342e&st=jpqyn38q&raw=1" preload="auto"></audio>
+<audio id="sfxThrowHitGround" src="https://www.dropbox.com/scl/fi/alyyqo3dno4f0exxvgqsb/VID_20260722_154908_995.mp3?rlkey=kazqjfg7vlmbr5ouongnpq95s&st=hwk32tca&raw=1" preload="auto"></audio>
+<audio id="sfxBlindScreen" src="https://www.dropbox.com/scl/fi/gfl39ww3io5b296fpx5so/VID_20260722_154819_941.mp3?rlkey=ovklvwlugjcmky5xz8yq1q9z5&st=7nge7ynt&raw=1" preload="auto"></audio>
+<audio id="sfxLargeTvAmbient" src="https://www.dropbox.com/scl/fi/z6flefvf8924itbrxdzb0/VID_20260722_154819_435.mp3?rlkey=051o2yipq1m25e3n5qpndtyxe&st=fff1co75&raw=1" loop preload="auto"></audio>
+<audio id="sfxLargeTvSpawn" src="https://www.dropbox.com/scl/fi/7qzxc1cymuseoxf23qv84/VID_20260722_154914_947.mp3?rlkey=56ttmgk8jlxcl47wnm6t2ieqy&st=f1dlibl8&raw=1" preload="auto"></audio>
+
+<audio id="sfxGuardianHit" src="https://www.dropbox.com/scl/fi/zg5g1fcnp1zi37mqklih0/VID_20260722_154902_087.mp3?rlkey=ma2cdwvvg4bdqewxvb4q08wsu&st=7by0r5uh&raw=1" preload="auto"></audio>
+<audio id="sfxGuardianKill" src="https://www.dropbox.com/scl/fi/kwq2ni78txoeg6s1l29oh/VID_20260722_154902_449.mp3?rlkey=2jj90nc08eguv8mmw14b5o8yq&st=zwotsnmw&raw=1" preload="auto"></audio>
+
+<audio id="sfxStriderStep1" src="https://www.dropbox.com/scl/fi/cq2u9j6ra3lnylsxw051w/VID_20260722_154908_836.mp3?rlkey=ebnt1q4jaoh2h3f8561bq3lfb&st=734j9tlf&raw=1" preload="auto"></audio>
+<audio id="sfxStriderStep2" src="https://www.dropbox.com/scl/fi/wx9wid68exybpv0f6i1vf/VID_20260722_154909_339.mp3?rlkey=l54zizb6rep60yv63zayxquh1&st=lkr55w5o&raw=1" preload="auto"></audio>
+<audio id="sfxStriderStep3" src="https://www.dropbox.com/scl/fi/alyyqo3dno4f0exxvgqsb/VID_20260722_154908_995.mp3?rlkey=kazqjfg7vlmbr5ouongnpq95s&st=cq2jkas5&raw=1" preload="auto"></audio>
+
+<audio id="sfxMusicWave" src="https://www.dropbox.com/scl/fi/x7aifbmkcmm6m7w3n683e/VID_20260722_154909_385.mp3?rlkey=swx59na0abjre40bgjs9bi8k8&st=7s3dfasl&raw=1" preload="auto"></audio>
+<audio id="sfxMegaSoundWave" src="https://www.dropbox.com/scl/fi/ycsawbyg44ktejald7p1y/VID_20260722_154908_823.mp3?rlkey=ucd8iccciwkw2p0hxbtjcjwjt&st=h7mk138c&raw=1" preload="auto"></audio>
+
+<audio id="sfxFailureStart" src="https://www.dropbox.com/scl/fi/raevg4sbaffpkywh1zt8k/lv_0_20260722233459.mp3?rlkey=ps1usav8kpkmid2oabt24bakh&st=ix4p00dn&raw=1" preload="auto"></audio>
+<audio id="sfxFailureMusic" src="https://www.dropbox.com/scl/fi/yflur9x6yejixau0v77r5/lv_0_20260722235336.mp3?rlkey=b3n4cz754ys0vdyma2zmebzyq&st=jqe4er7l&raw=1" loop preload="auto"></audio>
+<audio id="sfxFailureEnd" src="https://www.dropbox.com/scl/fi/o3mj17tmyg457gw8utz7l/lv_0_20260722235433.mp3?rlkey=fyr8amluvlkxo728tmbo8ct40&st=vbyl9fsn&raw=1" preload="auto"></audio>
+
+<audio id="sfxPvpSkibidi" src="https://www.dropbox.com/scl/fi/zlwria82i9arfkishelab/lv_0_20260723123629.mp3?rlkey=3pnmrya2issu4w5ibpxjc80z1&st=hmph0178&dl=1" loop preload="auto"></audio>
+<audio id="sfxPvpParasite" src="https://www.dropbox.com/scl/fi/q8ml1lsjh2w4x7yndcpip/Skibidionly.mp3.mpeg.mp3?rlkey=dd5g8naavewdak66iq6xioam6&st=pq5bpycd&dl=1" loop preload="auto"></audio>
+<audio id="sfxInfection" src="https://www.dropbox.com/scl/fi/2swgckrf1k4528e3stwww/lv_0_20260722130359.mp3?rlkey=00juk13yc009qkar6at7ljhgm&st=oa5zueu5&dl=1" preload="auto"></audio>
+
 <script>
 /* =========================================================
    ASSET URLS
@@ -437,7 +520,22 @@ const IMG = {
   speakermanModel:"https://www.dropbox.com/scl/fi/o88i969yvtkgax04shyic/SpeakerMan.png?rlkey=yaaoj04fbtsc5jax7m9it102n&st=okxw3xn7&raw=1",
   tvmanModel:"https://www.dropbox.com/scl/fi/vlgliw9pzopppzn98uyar/Best-PictureTvMan.png?rlkey=xpw5umbh1scqjhtizywyvi9z5&st=elpop6hi&raw=1",
   tvmanKnifeModel:"https://www.dropbox.com/scl/fi/f0m7vbc00jx0zl4psjqz1/TvManWithKnife.png?rlkey=jyuugc04natj1prlyy0m9pobk&st=oe52ngb7&raw=1",
-  dummy:"https://www.dropbox.com/scl/fi/zcztx2f100zuocvxhwkwl/IMG_20260721_010007_608.png?rlkey=hxnp5tg6p7awdfcx59ag8raxf&st=vfmf5zjz&raw=1",
+  guardianIcon:"https://www.dropbox.com/scl/fi/s2rruwxij7oezhsnp8ra4/IMG_20260722_154741_291.png?rlkey=nzjffc13azqf9g6pb6r6u8tq0&st=tsixqliw&raw=1",
+  guardianModel:"https://www.dropbox.com/scl/fi/hczpjt2wfexo09d0wbyms/IMG_20260722_154755_718.png?rlkey=fe0c01w2wajtjgla22zp3ecyo&st=xvra4xh2&raw=1",
+  largeTvIcon:"https://www.dropbox.com/scl/fi/0va6r98kodu5uzrjb70vc/Picsart_26-07-22_00-05-09-619.png?rlkey=k6qugu3xv3kbzca324rj8hxaj&st=lulq5y1l&raw=1",
+  largeTvModel:"https://www.dropbox.com/scl/fi/yafyiaq1oxl8jehchldyh/Picsart_26-07-22_00-08-07-520.png?rlkey=v9qsqgc7276fr0w6iknuqkero&st=n2l6ckxa&raw=1",
+  striderIcon:"https://www.dropbox.com/scl/fi/1xs9vx1xouoebmwejuurx/IMG_20260722_154901_520.png?rlkey=vn3rkr8qcw7m7wtr2djn7kcxv&st=wfjdxniq&raw=1",
+  striderModel:"https://www.dropbox.com/scl/fi/gbqan3wvrl1g3g7p8d9k3/IMG_20260722_154902_094.png?rlkey=1cdjwokgj3004lu1c2jhz5uip&st=k8gw0v8p&raw=1",
+  
+  dummyDefault:"https://www.dropbox.com/scl/fi/zcztx2f100zuocvxhwkwl/IMG_20260721_010007_608.png?rlkey=hxnp5tg6p7awdfcx59ag8raxf&st=vfmf5zjz&raw=1",
+  dummyPolice:"https://www.dropbox.com/scl/fi/dej598s93i22p9e7w5dc6/IMG_20260722_154736_302.png?rlkey=p18ec5q8ehrnjxvwx0ahb558d&st=syoj7ftd&dl=1",
+  dummyParasite:"https://www.dropbox.com/scl/fi/07rqftpo81ngb4tkndle9/IMG_20260722_154738_114.png?rlkey=7b4zoxiqbz37ibkir3sljhkfe&st=pn7h0wax&dl=1",
+  dummyGlasses:"https://www.dropbox.com/scl/fi/35u2l1pikag5vo7eywk3m/IMG_20260722_154738_931.png?rlkey=qrmglfb6dxxt5chqshqs84br6&st=xp1jwuv1&dl=1",
+  
+  infectedCamera: "https://www.dropbox.com/scl/fi/uuz1y9mzcomr04puba4j4/Picsart_26-07-22_12-47-24-889.png?rlkey=as8tzsyek6sfmx1hex4bagj5j&st=sc87jwzs&dl=1",
+  infectedSpeaker: "https://www.dropbox.com/scl/fi/jcu0welq9hpkft03mo5lt/Picsart_26-07-22_12-48-54-128.png?rlkey=6yx6s1ja8km9wkuxpw1e8w0d6&st=d8azw51h&dl=1",
+  infectedGuardian: "https://www.dropbox.com/scl/fi/33nh71bw6ysbs18aji5ew/Picsart_26-07-22_12-51-45-345.png?rlkey=smexn2hj5sor43szck6hgl21k&st=lne1ejlc&dl=1",
+
   hitSmoke:"https://www.dropbox.com/scl/fi/z3z5131fl89l6g7nslsme/IMG_20260721_001340_048.png?rlkey=kfz6dbwwecnv5em4bledhtc3c&st=mzzqm2dt&raw=1",
   waveFx:"https://www.dropbox.com/scl/fi/mjdkt6f6ps9lvlhifzlwj/Picsart_26-07-21_00-34-17-141.png?rlkey=q5if5wsugkzcfl36kmph96q3m&st=rldnna6h&raw=1",
   musicBoostFx:"https://www.dropbox.com/scl/fi/f7tk3s0tfyntq40mfpqv2/SpeakerManEffect.png?rlkey=2e5op20joktgglpexkdw7z7xf&st=a4va7dwk&raw=1",
@@ -445,7 +543,9 @@ const IMG = {
   tvEffect:"https://www.dropbox.com/scl/fi/m9ejwiarpuzqj3w1ch3iq/TvManEffect.png?rlkey=mi0npayrtoqucgtux7e7rblpp&st=htk9ovmj&raw=1",
   tvTeleport:"https://www.dropbox.com/scl/fi/wm6hhb6lb0m7wti8pryiv/TvManTeleport.png?rlkey=nleo1cabspnnvws7rw5y5zlfr&st=zpk1qwim&raw=1",
   tvKnifeFx:"https://www.dropbox.com/scl/fi/9i00ddln3uknke658pjqv/TvManKnife.png?rlkey=nlncpt105olo61otxji94ngn4&st=pez4bjbu&raw=1",
-  turnSpark:"https://www.dropbox.com/scl/fi/hny6m70cq3ajuho7kb6jr/TurnAroundAsTvMan.png?rlkey=bbe1gs7a6cg2lip4m9vj2bxv0&st=gq9smt6v&raw=1"
+  turnSpark:"https://www.dropbox.com/scl/fi/hny6m70cq3ajuho7kb6jr/TurnAroundAsTvMan.png?rlkey=bbe1gs7a6cg2lip4m9vj2bxv0&st=gq9smt6v&raw=1",
+  bulletFx:"https://www.dropbox.com/scl/fi/9dnfnvl5e581pfakkzec8/Picsart_26-07-21_18-43-06-385.png?rlkey=906r6fgrapzp3ne5j060py8g0&st=9xq41dn6&raw=1",
+  bulletHitFx:"https://www.dropbox.com/scl/fi/cx5e9j4p3a644i8ul75h4/Picsart_26-07-21_18-44-24-299.png?rlkey=5x7jsw59g13m0cv222fxfol0u&st=v0ufc007&raw=1"
 };
 
 /* =========================================================
@@ -463,23 +563,14 @@ function showScreen(id){
 
 window.addEventListener('load', ()=>{
   showScreen('menuScreen');
-  
-  // Step 1: 7 seconds black background
   setTimeout(()=>{
     startupOverlay.textContent = "Варн: Игра на данный момент находится в БЕТА версии, поэтому могут присутствовать баги а также глюки. Нажмите на экран, чтобы начать.";
-    
-    // Step 2: Wait for screen tap/click to dismiss disclaimer and enter menu
     const dismissDisclaimer = ()=>{
       startupOverlay.removeEventListener('click', dismissDisclaimer);
       startupOverlay.removeEventListener('touchend', dismissDisclaimer);
-      
       startupOverlay.style.opacity = '0';
       setTimeout(()=>{ startupOverlay.style.display='none'; }, 650);
-      
-      // reveal logo
       setTimeout(()=>{ logo.classList.add('show'); }, 150);
-      
-      // start music
       menuMusic.volume = 0.6;
       menuMusic.play().catch(()=>{
         const resume = ()=>{ menuMusic.play(); document.removeEventListener('touchstart', resume); document.removeEventListener('click', resume); };
@@ -487,7 +578,6 @@ window.addEventListener('load', ()=>{
         document.addEventListener('click', resume, {once:true});
       });
     };
-
     startupOverlay.addEventListener('click', dismissDisclaimer);
     startupOverlay.addEventListener('touchend', dismissDisclaimer);
   }, 7000);
@@ -498,25 +588,14 @@ window.addEventListener('load', ()=>{
 ========================================================= */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
-function resizeCanvas(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas(); window.addEventListener('resize', resizeCanvas);
 
 const colors = ['#ff3b3b','#ffd23b','#3b7bff','#9b3bff','#d63bcf'];
 const particles = [];
 const NUM_PARTICLES = 26;
 for(let i=0;i<NUM_PARTICLES;i++){
-  particles.push({
-    x: Math.random()*window.innerWidth,
-    y: Math.random()*window.innerHeight,
-    r: 4 + Math.random()*5,
-    vx: (Math.random()-0.5)*1.6,
-    vy: (Math.random()-0.5)*1.6,
-    color: colors[i % colors.length]
-  });
+  particles.push({ x: Math.random()*window.innerWidth, y: Math.random()*window.innerHeight, r: 4 + Math.random()*5, vx: (Math.random()-0.5)*1.6, vy: (Math.random()-0.5)*1.6, color: colors[i % colors.length] });
 }
 function stepParticles(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -528,7 +607,6 @@ function stepParticles(){
     if(p.y - p.r < 0){ p.y = p.r; p.vy *= -1; }
     if(p.y + p.r > canvas.height){ p.y = canvas.height - p.r; p.vy *= -1; }
   }
-  // collisions
   for(let i=0;i<particles.length;i++){
     for(let j=i+1;j<particles.length;j++){
       const a=particles[i], b=particles[j];
@@ -547,11 +625,7 @@ function stepParticles(){
     }
   }
   for(const p of particles){
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = 0.75;
-    ctx.fill();
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle = p.color; ctx.globalAlpha = 0.75; ctx.fill();
   }
   ctx.globalAlpha = 1;
   requestAnimationFrame(stepParticles);
@@ -561,108 +635,84 @@ stepParticles();
 /* =========================================================
    AUDIO HELPERS
 ========================================================= */
+const allSfxElements = [];
 function playSfx(el, vol){
   try{
+    if(allSfxElements.indexOf(el) === -1) allSfxElements.push(el);
     el.currentTime = 0;
     if(vol !== undefined) el.volume = vol;
     el.play().catch(()=>{});
   }catch(e){}
 }
+function stopAllGameSfx(){
+  allSfxElements.forEach(el=>{
+    try{ el.pause(); el.currentTime = 0; }catch(e){}
+  });
+  document.getElementById('sfxPvpSkibidi').pause();
+  document.getElementById('sfxPvpParasite').pause();
+}
 function playClick(){ playSfx(document.getElementById('sfxClick'), 0.85); }
-
 const stepSounds = ['sfxStep1','sfxStep2','sfxStep3','sfxStep4','sfxStep5','sfxStep6','sfxStep7'].map(id=>document.getElementById(id));
-function playRandomStep(){
-  const s = stepSounds[Math.floor(Math.random()*stepSounds.length)];
-  playSfx(s, 0.55);
-}
+function playRandomStep(){ const s = stepSounds[Math.floor(Math.random()*stepSounds.length)]; playSfx(s, 0.55); }
+const striderSteps = ['sfxStriderStep1','sfxStriderStep2','sfxStriderStep3'].map(id=>document.getElementById(id));
+function playRandomStriderStep(){ const s = striderSteps[Math.floor(Math.random()*striderSteps.length)]; playSfx(s, 1); }
 const knifeSounds = ['sfxKnife1','sfxKnife2','sfxKnife3'].map(id=>document.getElementById(id));
-function playRandomKnife(){
-  const s = knifeSounds[Math.floor(Math.random()*knifeSounds.length)];
-  playSfx(s, 0.8);
-}
+function playRandomKnife(){ const s = knifeSounds[Math.floor(Math.random()*knifeSounds.length)]; playSfx(s, 0.8); }
 
 /* =========================================================
-   NAVIGATION: MENU -> LOGS / SELECT
+   NAVIGATION
 ========================================================= */
 const logsOverlay = document.getElementById('logsOverlay');
-document.getElementById('logsBtn').addEventListener('click', ()=>{
-  playClick();
-  logsOverlay.classList.add('show');
-});
-document.getElementById('logsCloseBtn').addEventListener('click', ()=>{
-  playClick();
-  logsOverlay.classList.remove('show');
-});
-
-document.getElementById('startBtn').addEventListener('click', ()=>{
-  playClick();
-  showScreen('selectScreen');
-  renderCharacterSelect();
-});
+document.getElementById('logsBtn').addEventListener('click', ()=>{ playClick(); logsOverlay.classList.add('show'); });
+document.getElementById('logsCloseBtn').addEventListener('click', ()=>{ playClick(); logsOverlay.classList.remove('show'); });
+document.getElementById('startBtn').addEventListener('click', ()=>{ playClick(); showScreen('selectScreen'); renderCharacterSelect(); });
 
 document.getElementById('homeBtn').addEventListener('click', ()=>{
   playClick();
+  document.getElementById('sfxScreamLoop').pause();
+  document.getElementById('sfxFailureMusic').pause();
   exitGameToMainMenu();
 });
 
 /* =========================================================
-   GAME STATE / PROGRESSION
+   GAME STATE & CHARACTERS
 ========================================================= */
 const state = {
   scraps: 0,
-  unlocked: { cameraman:true, speakerman:false, tvman:false }
+  unlocked: { cameraman:true, speakerman:false, tvman:false, guardian:false, largetv:false, strider:false }
 };
-
 function updateScrapDisplays(){
   document.getElementById('scrapCount').textContent = state.scraps;
   document.getElementById('scrapCountGame').textContent = state.scraps;
 }
 
 const CHARACTERS = [
-  {
-    id:'cameraman',
-    name:'CameraHare',
-    icon: IMG.cameramanIcon,
-    model: IMG.cameramanModel,
-    cost:0,
-    info:'Camera Hare: Стартовый перс. Чего можно ожидать?',
-    m1dmg:20
-  },
-  {
-    id:'speakerman',
-    name:'SpeakerHare',
-    icon: IMG.speakermanIcon,
-    model: IMG.speakermanModel,
-    cost:5,
-    info:'SpeakerHare: Этого уже нельзя назвать стартовым персом, этот уже чутка лучше своими двумя новыми способностями - SoundWave, MusicBoost. Стоимость перса - 5 Скрэпов.',
-    m1dmg:25
-  },
-  {
-    id:'tvman',
-    name:'TvHare',
-    icon: IMG.tvmanIcon,
-    model: IMG.tvmanModel,
-    cost:10,
-    info:'TvHare: Самый загадочный перс в сериале Purple Toilet. О нём почти ничего неизвестно, однако он выделяется своим характером и своими способностями - HypnoScreen, Teleport. Также он может быть чутка медленный в поворотах. Стоимость: 10 скрэпов. Если лень добывать скрэпы, просто юзни консоль.',
-    m1dmg:30
-  }
+  { id:'cameraman', name:'CameraHare', icon: IMG.cameramanIcon, model: IMG.cameramanModel, cost:0, info:'Camera Hare: Стартовый перс. Чего можно ожидать?', m1dmg:20, hp:120 },
+  { id:'speakerman', name:'SpeakerHare', icon: IMG.speakermanIcon, model: IMG.speakermanModel, cost:5, info:'SpeakerHare: Этого уже нельзя назвать стартовым персом, этот уже чутка лучше своими двумя новыми способностями - SoundWave, MusicBoost. Стоимость перса - 5 Скрэпов.', m1dmg:25, hp:150 },
+  { id:'tvman', name:'TvHare', icon: IMG.tvmanIcon, model: IMG.tvmanModel, cost:10, info:'TvHare: Самый загадочный перс в сериале Purple Toilet. О нём почти ничего неизвестно, однако он выделяется своим характером и своими способностями - HypnoScreen, Teleport. Также он может быть чутка медленный в поворотах. Стоимость: 10 скрэпов.', m1dmg:30, hp:290 },
+  { id:'guardian', name:'Guardian Hare', icon: IMG.guardianIcon, model: IMG.guardianModel, cost:20, info:'Guardian Hare: Вооружённый персонаж, который почти не получает травмы или даже царапины, один из самых умных агентов. Стоимость - 20 Скрэпов. Способности Перса - Block, Fire.', m1dmg:20, hp:215 },
+  { id:'largetv', name:'LargeTvHare', icon: IMG.largeTvIcon, model: IMG.largeTvModel, cost:35, info:'LargeTvHare: Вторая Версия Тв Зайца, однако более сильнее. Способнен ослепить врага до смерти своими телевизорами. Однако он беспомощный, если скибидист имеет против него очки. Стоимость - 35 Скрэпов. Способности - BlindScreen, Grab, Block.', m1dmg:53, hp:415 },
+  { id:'strider', name:'SpeakerStriderHare', icon: IMG.striderIcon, model: IMG.striderModel, cost:150, info:'SpeakerStriderHare: Машина для разноса, она способна проломить звуковой барьер, но против скибидистов с наушниками она беспомощная. Передвигается очень медленно. Стоимость - 150 Скрэпов. Способности - MusicWave, MegaSoundWave, Failure Mode.', m1dmg:90, hp:1050 }
 ];
 
 function isUnlocked(charId){
   if(charId==='cameraman') return true;
   return state.scraps >= CHARACTERS.find(c=>c.id===charId).cost || state.unlocked[charId];
 }
-
-window.unlockAll = function(){
-  state.unlocked.speakerman = true;
-  state.unlocked.tvman = true;
-  renderCharacterSelect();
-  console.log('Все персонажи разблокированы.');
-};
 window.addScraps = function(n){ state.scraps += (n||10); updateScrapDisplays(); renderCharacterSelect(); };
 
 /* =========================================================
-   CHARACTER SELECT RENDER
+   DUMMIES DEFINITION
+========================================================= */
+const DUMMIES = [
+  { id: 'normal', name:'Purple Toilet', icon: 'https://www.dropbox.com/scl/fi/d4beuxlmkmvjiwmh8yv70/IMG_20260722_154756_128.png?rlkey=4mh1t63yg68e0uzsorj78v73v&st=hvlnvpx1&dl=1', info: 'Обычный Скибидист: Самый обыкновенный скибидист, невороятно слабый. ХП: 100.', model: IMG.dummyDefault, hp:100, dmg:20, speedMult:1, scale:1, immune:false, parasite:false },
+  { id: 'police', name:'PurplePoilceToilet', icon: 'https://www.dropbox.com/scl/fi/njpozd2pvyphg2rmb6qfr/IMG_20260722_154756_173.png?rlkey=x8o6jjpzgydcl9qbmd19ccrs8&st=e8zloqc8&dl=1', info: 'Полицейский Туалет: Сильнее обычного скибидиста, но практически ничем не отличается. ХП: 150.', model: IMG.dummyPolice, hp:150, dmg:30, speedMult:1, scale:1, immune:false, parasite:false },
+  { id: 'parasite', name:'ParasiteToilet', icon: 'https://www.dropbox.com/scl/fi/h2qwr3fh71h98wz33oy4k/IMG_20260722_154755_581.png?rlkey=h15c0he4y4t3nsjz0k8r3l32i&st=25oa6deu&dl=1', info: 'ПаразитТуалет: Невороятно слабый, но очень бесячий персонаж, он способен захватить ваш контроль, однако это работает только на CameraHare, SpeakerHare, GuardianHare. ХП: 40', model: IMG.dummyParasite, hp:40, dmg:15, speedMult:2, scale:0.5, immune:false, parasite:true },
+  { id: 'glasses', name:'PurpleToiletWithGlasses', icon: 'https://www.dropbox.com/scl/fi/9j4rb7ixjjn82jhw3b8av/IMG_20260722_154756_058.png?rlkey=my9rm3bcycxa698tr72ef4k9v&st=9ryb8n5r&dl=1', info: 'Туалет с очками - Копия первого зайца думми, но с очками, он не получает урон от экрана LargeTvHare, TvHare. ХП: 120.', model: IMG.dummyGlasses, hp:120, dmg:20, speedMult:1, scale:1, immune:true, parasite:false }
+];
+
+/* =========================================================
+   UI MENUS RENDER
 ========================================================= */
 const iconsRow = document.getElementById('iconsRow');
 function renderCharacterSelect(){
@@ -680,22 +730,14 @@ function renderCharacterSelect(){
     wrap.appendChild(img);
 
     if(!unlocked){
-      const badge=document.createElement('div');
-      badge.className='lock-badge';
-      badge.textContent = ch.cost+' скрэпов';
-      wrap.appendChild(badge);
+      const badge=document.createElement('div'); badge.className='lock-badge';
+      badge.textContent = ch.cost+' скрэпов'; wrap.appendChild(badge);
     }
 
-    const actions = document.createElement('div');
-    actions.className='char-actions';
-    const playBtn = document.createElement('div');
-    playBtn.className='mini-btn play';
-    playBtn.textContent='Play';
-    const infoBtn = document.createElement('div');
-    infoBtn.className='mini-btn info';
-    infoBtn.textContent='Info';
-    actions.appendChild(playBtn);
-    actions.appendChild(infoBtn);
+    const actions = document.createElement('div'); actions.className='char-actions';
+    const playBtn = document.createElement('div'); playBtn.className='mini-btn play'; playBtn.textContent='Play';
+    const infoBtn = document.createElement('div'); infoBtn.className='mini-btn info'; infoBtn.textContent='Info';
+    actions.appendChild(playBtn); actions.appendChild(infoBtn);
     wrap.appendChild(actions);
 
     wrap.addEventListener('click', (e)=>{
@@ -708,42 +750,84 @@ function renderCharacterSelect(){
     });
 
     playBtn.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      playClick();
-      if(!unlocked){
-        wrap.classList.remove('dimmed');
-        actions.classList.remove('show');
-        return;
-      }
+      e.stopPropagation(); playClick();
+      if(!unlocked){ wrap.classList.remove('dimmed'); actions.classList.remove('show'); return; }
       startGame(ch);
     });
 
     infoBtn.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      playClick();
-      showInfo(ch.info);
+      e.stopPropagation(); playClick(); showInfo(ch.info);
     });
 
-    const label = document.createElement('div');
-    label.className='char-name-label';
-    label.textContent = ch.name;
-
-    slot.appendChild(wrap);
-    slot.appendChild(label);
-    iconsRow.appendChild(slot);
+    const label = document.createElement('div'); label.className='char-name-label'; label.textContent = ch.name;
+    slot.appendChild(wrap); slot.appendChild(label); iconsRow.appendChild(slot);
   });
 }
 
 const infoOverlay = document.getElementById('infoOverlay');
 const infoText = document.getElementById('infoText');
-function showInfo(text){
-  infoText.textContent = text;
-  infoOverlay.classList.add('show');
-}
-document.getElementById('infoCloseBtn').addEventListener('click', ()=>{
-  playClick();
-  infoOverlay.classList.remove('show');
+function showInfo(text){ infoText.textContent = text; infoOverlay.classList.add('show'); }
+document.getElementById('infoCloseBtn').addEventListener('click', ()=>{ playClick(); infoOverlay.classList.remove('show'); });
+
+/* SPAWN PANEL MENU */
+const spawnPanelOverlay = document.getElementById('spawnPanelOverlay');
+const pvpToggleBtn = document.getElementById('pvpToggleBtn');
+let pvpMode = false;
+document.getElementById('spawnPanelOpenBtn').addEventListener('click', ()=>{ playClick(); spawnPanelOverlay.classList.add('show'); renderSpawnPanel(); });
+document.getElementById('spawnPanelCloseBtn').addEventListener('click', ()=>{ playClick(); spawnPanelOverlay.classList.remove('show'); });
+pvpToggleBtn.addEventListener('click', ()=>{ 
+  playClick(); 
+  pvpMode = !pvpMode; 
+  if(pvpMode) pvpToggleBtn.classList.add('on'); else pvpToggleBtn.classList.remove('on');
+  updateMusicState();
 });
+document.getElementById('clearDummiesBtn').addEventListener('click', ()=>{
+  playClick();
+  activeDummies.forEach(d => d.el.remove());
+  activeDummies = [];
+  isGrabbingDummy = false;
+  throwBtn.style.display = 'none';
+  document.getElementById('sfxScreamLoop').pause();
+  updateMusicState();
+});
+
+const spawnIconsRow = document.getElementById('spawnIconsRow');
+function renderSpawnPanel(){
+  spawnIconsRow.innerHTML = '';
+  DUMMIES.forEach(dum=>{
+    const slot = document.createElement('div');
+    slot.className='char-slot';
+
+    const wrap = document.createElement('div');
+    wrap.className='char-icon-wrap';
+    const img = document.createElement('img'); img.src = dum.icon; wrap.appendChild(img);
+
+    const actions = document.createElement('div'); actions.className='char-actions';
+    const spawnBtn = document.createElement('div'); spawnBtn.className='mini-btn spawn'; spawnBtn.textContent='Spawn';
+    const infoBtn = document.createElement('div'); infoBtn.className='mini-btn info'; infoBtn.textContent='Info';
+    actions.appendChild(spawnBtn); actions.appendChild(infoBtn);
+    wrap.appendChild(actions);
+
+    wrap.addEventListener('click', (e)=>{
+      if(actions.classList.contains('show')) return;
+      playClick();
+      spawnIconsRow.querySelectorAll('.char-icon-wrap').forEach(w=>{ w.classList.remove('dimmed'); });
+      spawnIconsRow.querySelectorAll('.char-actions').forEach(a=>a.classList.remove('show'));
+      wrap.classList.add('dimmed'); actions.classList.add('show');
+    });
+
+    spawnBtn.addEventListener('click', (e)=>{
+      e.stopPropagation(); playClick();
+      createDummy(dum, playerX);
+      spawnPanelOverlay.classList.remove('show');
+    });
+
+    infoBtn.addEventListener('click', (e)=>{ e.stopPropagation(); playClick(); showInfo(dum.info); });
+
+    const label = document.createElement('div'); label.className='char-name-label'; label.textContent = dum.name;
+    slot.appendChild(wrap); slot.appendChild(label); spawnIconsRow.appendChild(slot);
+  });
+}
 
 /* =========================================================
    GAME / COMBAT LOGIC
@@ -751,20 +835,28 @@ document.getElementById('infoCloseBtn').addEventListener('click', ()=>{
 const arena = document.getElementById('arena');
 const playerWrap = document.getElementById('player-wrap');
 const playerImg = document.getElementById('player-img');
-const dummyWrap = document.getElementById('dummy-wrap');
-const dummyImg = document.getElementById('dummy-img');
-const dummyHpBar = document.getElementById('dummyHpBar');
 const m1Btn = document.getElementById('m1Btn');
+const throwBtn = document.getElementById('throwBtn');
 const abilityRow = document.getElementById('abilityRow');
 const hypnoOverlay = document.getElementById('hypnoOverlay');
+const fireFlashOverlay = document.getElementById('fireFlashOverlay');
+const dummiesContainer = document.getElementById('dummiesContainer');
+
+const playerHpBarWrap = document.getElementById('playerHpBarWrap');
+const playerHpBarInner = document.getElementById('playerHpBarInner');
+const playerHpText = document.getElementById('playerHpText');
 
 let playerX = 50;
 let facing = 1;
 let stepTimer = null;
+let striderWobbleTimer = null;
 let currentChar = null;
-let dummyHp = 150;
-const DUMMY_MAX_HP = 150;
-let dummyAlive = true;
+let baseScale = 1;
+
+let maxPlayerHp = 100;
+let playerHp = 100;
+let playerAlive = true;
+
 let m1OnCooldown = false;
 let canMove = true;
 let speedBoostActive = false;
@@ -772,70 +864,173 @@ let speedBoostTimeout = null;
 
 let tvKnifeMode = false;
 let tvTurning = false;
+let isLargeTv = false;
 
+let blockActive = false;
+let failureModeActive = false;
 let playtimeInterval = null;
-
-const MOVE_STEP = 1.4;
 const ARENA_MIN_X = 12;
 const ARENA_MAX_X = 88;
 
+let activeDummies = [];
+let isGrabbingDummy = false;
+let grabbedDummyObj = null;
+let pvpLoopInterval = null;
+
 function startGame(ch){
+  const ambient = document.getElementById('sfxLargeTvAmbient');
+  ambient.pause(); ambient.currentTime = 0;
+  
+  const failureMusic = document.getElementById('sfxFailureMusic');
+  failureMusic.pause(); failureMusic.currentTime = 0;
+  document.getElementById('failureOverlay').style.opacity = '0';
+  document.getElementById('failureOverlay').classList.remove('failure-noise');
+
   currentChar = ch;
-  dummyHp = DUMMY_MAX_HP;
-  dummyAlive = true;
-  dummyHpBar.style.transform = 'scaleX(1)';
-  playerX = 50;
-  facing = 1;
-  tvKnifeMode = false;
+  maxPlayerHp = ch.hp;
+  playerHp = maxPlayerHp;
+  playerAlive = true;
+  canMove = true;
+  updatePlayerHpUI();
+
+  isLargeTv = (ch.id === 'largetv');
+  baseScale = isLargeTv ? 3 : (ch.id === 'strider' ? 5 : 1);
+  isGrabbingDummy = false;
+  grabbedDummyObj = null;
+  throwBtn.style.display = 'none';
+
+  playerX = 50; facing = 1; tvKnifeMode = false; failureModeActive = false;
+  
   playerImg.src = ch.model;
-  playerImg.style.transform = `translateX(0) scaleX(1)`;
+  playerImg.style.transform = `scaleX(1) scale(${baseScale})`;
+  
+  if(isLargeTv) { playerImg.classList.add('large-tv-on'); setTimeout(()=>playerImg.classList.remove('large-tv-on'), 100); }
+
   updatePlayerPosition();
   renderAbilities(ch);
+  
+  activeDummies.forEach(d => d.el.remove());
+  activeDummies = [];
+  createDummy(DUMMIES[0], 50);
+
+  document.getElementById('deathOverlay').style.opacity = '0';
+  document.getElementById('deathOverlay').style.display = 'none';
+  playerHpBarWrap.style.display = 'block';
+
   showScreen('gameScreen');
   updateScrapDisplays();
   startPlaytimeTimer();
   
   menuMusic.pause();
 
-  if(ch.id==='tvman'){
-    playSfx(document.getElementById('sfxTvSpawn'), 0.8);
+  if(ch.id==='tvman'){ playSfx(document.getElementById('sfxTvSpawn'), 0.8); } 
+  else if(ch.id==='largetv') { playSfx(document.getElementById('sfxLargeTvSpawn'), 1); ambient.volume = 0.6; ambient.play().catch(()=>{}); }
+
+  if(pvpLoopInterval) clearInterval(pvpLoopInterval);
+  pvpLoopInterval = setInterval(gameLoop, 50);
+}
+
+function updatePlayerHpUI() {
+  const ratio = Math.max(0, playerHp / maxPlayerHp);
+  playerHpBarInner.style.transform = `scaleX(${ratio})`;
+  playerHpText.textContent = Math.ceil(playerHp) + ' ХП';
+}
+
+function applyPlayerDamage(dmg) {
+  if(!playerAlive) return;
+  if(blockActive) {
+      if(activeDummies.length > 0) {
+          playSfx(document.getElementById('sfxBlockCounter'), 0.9);
+          const blockDmg = isLargeTv ? 40 : 20;
+          activeDummies.forEach(dum => {
+              if(isDummyNearPlayer(dum.x)) {
+                  applyDummyDamage(dum, blockDmg);
+                  dum.stunTimeout = Date.now() + 3000;
+                  dum.el.classList.add('dummy-stunned');
+                  setTimeout(()=>dum.el.classList.remove('dummy-stunned'), 3000);
+              }
+          });
+      } else { playSfx(document.getElementById('sfxBlock'), 0.9); }
+      return;
+  }
+  
+  playerHp -= dmg;
+  updatePlayerHpUI();
+  playerWrap.classList.add('shaking');
+  setTimeout(()=>playerWrap.classList.remove('shaking'), 150);
+  
+  if(playerHp <= 0) {
+      playerDeath();
   }
 }
 
+function playerDeath() {
+  playerAlive = false;
+  canMove = false;
+  const deathOver = document.getElementById('deathOverlay');
+  deathOver.style.display = 'block';
+  document.getElementById('moveControls').style.display = 'none';
+  m1Btn.style.display = 'none';
+  abilityRow.style.display = 'none';
+  playerHpBarWrap.style.display = 'none';
+  
+  setTimeout(()=>{ deathOver.style.opacity = '1'; }, 50);
+  setTimeout(()=>{ location.reload(); }, 2050);
+}
+
 function exitGameToMainMenu(){
-  stopPlaytimeTimer();
-  clearInterval(stepTimer);
-  showScreen('menuScreen');
-  menuMusic.play().catch(()=>{});
+  stopPlaytimeTimer(); clearInterval(stepTimer); clearInterval(striderWobbleTimer);
+  clearInterval(pvpLoopInterval); pvpLoopInterval = null;
+  stopAllGameSfx(); document.getElementById('sfxLargeTvAmbient').pause(); document.getElementById('sfxFailureMusic').pause();
+  showScreen('menuScreen'); menuMusic.play().catch(()=>{});
 }
 
 function updatePlayerPosition(){
   playerWrap.style.left = playerX + '%';
+  if(isGrabbingDummy && grabbedDummyObj){
+    grabbedDummyObj.el.style.left = playerX + '%';
+  }
 }
 
-/* ---- movement buttons ---- */
 let moveHoldInterval = null;
-let stepPhase = false;
 let lastStepSound = 0;
 
+function getMoveSpeed() {
+    let speed = 1.4;
+    if(currentChar.id === 'strider') speed = 0.6;
+    if(speedBoostActive) speed *= 1.7;
+    if(failureModeActive) speed *= 2;
+    return speed;
+}
+
 function beginMove(dir){
-  if(!canMove) return;
+  if(!canMove || !playerAlive) return;
   facing = dir;
   applyFacingFlip();
   if(moveHoldInterval) return;
+  
+  if(currentChar.id === 'strider') {
+      let wobbleToggle = false;
+      striderWobbleTimer = setInterval(()=>{
+          wobbleToggle = !wobbleToggle;
+          let deg = wobbleToggle ? 4 : -4;
+          playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) rotate(${deg}deg) translateY(-2px)`;
+      }, 300);
+  }
+
   moveHoldInterval = setInterval(()=>{
-    if(!canMove) return;
-    const speed = speedBoostActive ? MOVE_STEP*1.7 : MOVE_STEP;
-    playerX += dir*speed;
+    if(!canMove || !playerAlive) return;
+    playerX += dir * getMoveSpeed();
     if(playerX < ARENA_MIN_X) playerX = ARENA_MIN_X;
     if(playerX > ARENA_MAX_X) playerX = ARENA_MAX_X;
     updatePlayerPosition();
     doStepBob();
   }, 60);
 }
-function endMove(){
-  clearInterval(moveHoldInterval);
-  moveHoldInterval = null;
+function endMove(){ 
+    clearInterval(moveHoldInterval); moveHoldInterval = null; 
+    if(striderWobbleTimer) { clearInterval(striderWobbleTimer); striderWobbleTimer = null; }
+    if(currentChar && currentChar.id === 'strider' && !tvTurning) playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) rotate(0deg)`;
 }
 
 function applyFacingFlip(){
@@ -843,34 +1038,30 @@ function applyFacingFlip(){
   if(currentChar && currentChar.id==='tvman'){
     doTvTurn();
   } else {
-    playerImg.style.transform = `scaleX(${facing})`;
+    playerImg.style.transform = `scaleX(${facing}) scale(${baseScale})`;
   }
 }
 
 function doTvTurn(){
-  tvTurning = true;
-  canMove = false;
-  playSfx(document.getElementById('sfxTurn'), 0.75);
-  spawnFx(IMG.turnSpark, playerWrap, 90, 26);
+  tvTurning = true; canMove = false;
+  playSfx(document.getElementById('sfxTurn'), 0.75); spawnFx(IMG.turnSpark, playerWrap, 90, 26);
   playerWrap.classList.add('shaking');
   setTimeout(()=>{
-    playerImg.style.transform = `scaleX(${facing})`;
-    setTimeout(()=>{
-      playerWrap.classList.remove('shaking');
-      tvTurning = false;
-      canMove = true;
-    }, 200);
+    playerImg.style.transform = `scaleX(${facing}) scale(${baseScale})`;
+    setTimeout(()=>{ playerWrap.classList.remove('shaking'); tvTurning = false; canMove = true; }, 200);
   }, 800);
 }
 
 function doStepBob(){
   const now = Date.now();
-  if(now - lastStepSound > 550){
-    lastStepSound = now;
-    playRandomStep();
+  if(currentChar.id === 'strider') {
+      if(now - lastStepSound > (900 / (failureModeActive ? 2 : 1))) {
+          lastStepSound = now; playRandomStriderStep();
+      }
+  } else {
+      if(now - lastStepSound > 550){ lastStepSound = now; playRandomStep(); }
+      playerImg.style.marginBottom = '3px'; setTimeout(()=>{ playerImg.style.marginBottom = '0px'; }, 90);
   }
-  playerImg.style.marginBottom = '3px';
-  setTimeout(()=>{ playerImg.style.marginBottom = '0px'; }, 90);
 }
 
 const moveLeftBtn = document.getElementById('moveLeftBtn');
@@ -880,107 +1071,240 @@ const moveRightBtn = document.getElementById('moveRightBtn');
   moveRightBtn.addEventListener(ev,(e)=>{ e.preventDefault(); beginMove(1); });
 });
 ['touchend','touchcancel','mouseup','mouseleave'].forEach(ev=>{
-  moveLeftBtn.addEventListener(ev, endMove);
-  moveRightBtn.addEventListener(ev, endMove);
+  moveLeftBtn.addEventListener(ev, endMove); moveRightBtn.addEventListener(ev, endMove);
 });
 
-/* ---- M1 attack ---- */
 m1Btn.addEventListener('click', ()=>{
-  if(m1OnCooldown || !canMove) return;
-  m1OnCooldown = true;
-  m1Btn.classList.add('cooldown');
+  if(m1OnCooldown || !canMove || isGrabbingDummy || !playerAlive) return;
+  m1OnCooldown = true; m1Btn.classList.add('cooldown');
   setTimeout(()=>{ m1OnCooldown=false; m1Btn.classList.remove('cooldown'); }, 700);
 
-  playerWrap.classList.add('shaking');
-  setTimeout(()=>{ playerWrap.classList.remove('shaking'); }, 500);
-
-  const inRange = isPlayerNearDummy();
-  if(inRange && dummyAlive){
-    let dmg = currentChar.m1dmg;
-    if(tvKnifeMode) dmg = dmg*2;
-    applyDummyDamage(dmg);
-    if(tvKnifeMode){
-      playRandomKnife();
-      spawnFx(IMG.tvKnifeFx, dummyWrap, 260, 40, true);
-    } else {
-      playSfx(document.getElementById('sfxHit'), 0.85);
-      spawnFx(IMG.hitSmoke, dummyWrap, 1000, 40, true);
-    }
-    knockDummy();
+  if(currentChar.id === 'strider'){
+      playerImg.style.transition = 'transform 0.05s ease-out';
+      playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) translateY(-30px)`;
+      setTimeout(() => {
+          playerImg.style.transition = 'transform 0.05s ease-in';
+          playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) translateY(0px)`;
+          setTimeout(() => { playerImg.style.transition = ''; }, 50);
+      }, 50);
   } else {
-    playSfx(document.getElementById('sfxMiss'), 0.7);
+      playerWrap.classList.add('shaking'); setTimeout(()=>{ playerWrap.classList.remove('shaking'); }, 500);
   }
+
+  let hitAny = false;
+  let dmg = currentChar.m1dmg;
+  if(tvKnifeMode) dmg = dmg*2;
+  if(currentChar.id === 'strider' && failureModeActive) dmg = 150;
+
+  activeDummies.forEach(dum => {
+      if(isDummyNearPlayer(dum.x) && dum.alive) {
+          hitAny = true;
+          applyDummyDamage(dum, dmg);
+          if(currentChar.id === 'strider') { playSfx(document.getElementById('sfxGuardianHit'), 1); spawnFx(IMG.hitSmoke, dum.el, 1000, 100, true); } 
+          else if(tvKnifeMode){ playRandomKnife(); spawnFx(IMG.tvKnifeFx, dum.el, 260, 40, true); } 
+          else if(isLargeTv) { playSfx(document.getElementById('sfxHeavyPunch'), 1); spawnFx(IMG.hitSmoke, dum.el, 1000, 80, true); } 
+          else { playSfx(document.getElementById('sfxHit'), 0.85); spawnFx(IMG.hitSmoke, dum.el, 1000, 40, true); }
+          knockDummy(dum);
+      }
+  });
+
+  if(!hitAny) playSfx(document.getElementById('sfxMiss'), 0.7);
 });
 
-function isPlayerNearDummy(){
-  return Math.abs(playerX - 50) < 14;
+/* =========================================================
+   DUMMIES LOGIC
+========================================================= */
+
+function createDummy(typeObj, startX) {
+    const el = document.createElement('div');
+    el.className = 'dummy-wrap';
+    el.style.left = startX + '%';
+    
+    const img = document.createElement('img');
+    img.className = 'dummy-img';
+    img.src = typeObj.model;
+    if(typeObj.scale !== 1) img.style.transform = `scale(${typeObj.scale})`;
+    el.appendChild(img);
+    
+    const hpWrap = document.createElement('div'); hpWrap.className = 'dummy-hpbar-wrap';
+    const hpBar = document.createElement('div'); hpBar.className = 'dummy-hpbar';
+    hpWrap.appendChild(hpBar); el.appendChild(hpWrap);
+    
+    dummiesContainer.appendChild(el);
+    
+    const dum = {
+        id: Math.random().toString(36).substr(2,9),
+        type: typeObj,
+        el: el,
+        img: img,
+        hpBar: hpBar,
+        hp: typeObj.hp,
+        alive: true,
+        x: startX,
+        stunTimeout: 0,
+        lastAttackTime: 0,
+        parasiteHits: 0
+    };
+    activeDummies.push(dum);
+    updateMusicState();
 }
 
-function applyDummyDamage(dmg){
-  dummyHp -= dmg;
-  if(dummyHp < 0) dummyHp = 0;
-  const ratio = dummyHp/DUMMY_MAX_HP;
-  dummyHpBar.style.transform = `scaleX(${ratio})`;
-  if(dummyHp<=0 && dummyAlive){
-    dummyDeath();
-  }
+function updateMusicState() {
+    const pvpSkib = document.getElementById('sfxPvpSkibidi');
+    const pvpPara = document.getElementById('sfxPvpParasite');
+    
+    if(!pvpMode || !playerAlive || !canMove || activeDummies.length === 0) {
+        pvpSkib.pause(); pvpPara.pause(); return;
+    }
+    
+    let hasNormal = false; let hasParasite = false;
+    activeDummies.forEach(d => {
+        if(!d.alive) return;
+        if(d.type.parasite) hasParasite = true; else hasNormal = true;
+    });
+    
+    if(hasNormal) { pvpSkib.play().catch(()=>{}); } else { pvpSkib.pause(); }
+    if(hasParasite) { pvpPara.play().catch(()=>{}); } else { pvpPara.pause(); }
 }
 
-function knockDummy(){
+function gameLoop() {
+    if(!pvpMode || !playerAlive || !canMove) return;
+    const now = Date.now();
+    const playerBaseSpeed = 1.4;
+    
+    activeDummies.forEach(dum => {
+        if(!dum.alive || (isGrabbingDummy && grabbedDummyObj === dum)) return;
+        if(now < dum.stunTimeout) return;
+        
+        const dist = playerX - dum.x;
+        const absDist = Math.abs(dist);
+        let range = (currentChar.id === 'strider') ? 25 : 14;
+        
+        if(absDist > range - 2) {
+            let speed = playerBaseSpeed * dum.type.speedMult;
+            let dir = dist > 0 ? 1 : -1;
+            dum.x += dir * speed;
+            dum.el.style.left = dum.x + '%';
+        } else {
+            /* БАГ 2 И 4 ФИКС: Удар раз в 3 секунды (3000ms), анимация вздрагивания 1 сек + звук удара */
+            if(now - dum.lastAttackTime > 3000) {
+                dum.lastAttackTime = now;
+                dum.el.classList.add('shaking');
+                playSfx(document.getElementById('sfxHit'), 0.85);
+                setTimeout(()=>dum.el.classList.remove('shaking'), 1000);
+                
+                if(dum.type.parasite) {
+                    const isVulnerable = (currentChar.id === 'cameraman' || currentChar.id === 'speakerman' || currentChar.id === 'guardian');
+                    if(isVulnerable) {
+                        dum.parasiteHits++;
+                        applyPlayerDamage(dum.type.dmg);
+                        if(dum.parasiteHits >= 2 && playerAlive) { triggerInfection(dum); }
+                    } else {
+                        applyPlayerDamage(dum.type.dmg);
+                    }
+                } else {
+                    applyPlayerDamage(dum.type.dmg);
+                }
+            }
+        }
+    });
+    updateMusicState();
+}
+
+/* БАГ 1 ФИКС: Заражение останавливает движения, играется один раз звук и мелкое дрожание перса */
+function triggerInfection(parasiteDum) {
+    canMove = false;
+    clearInterval(moveHoldInterval); moveHoldInterval = null;
+    if(striderWobbleTimer) { clearInterval(striderWobbleTimer); striderWobbleTimer = null; }
+    
+    document.getElementById('moveControls').style.display = 'none';
+    m1Btn.style.display = 'none'; abilityRow.style.display = 'none';
+    
+    document.getElementById('sfxPvpParasite').pause();
+    document.getElementById('sfxPvpSkibidi').pause();
+    
+    const infAudio = document.getElementById('sfxInfection');
+    infAudio.loop = false;
+    playSfx(infAudio, 1);
+    
+    playerWrap.classList.remove('screen-shake');
+    playerWrap.classList.add('shaking');
+    
+    setTimeout(() => {
+        parasiteDum.el.style.transition = 'bottom 0.5s, left 0.5s';
+        parasiteDum.el.style.bottom = '35vh';
+        parasiteDum.el.style.left = playerX + '%';
+        
+        setTimeout(() => {
+            parasiteDum.el.remove();
+            let nSkin = IMG.infectedCamera;
+            if(currentChar.id === 'speakerman') nSkin = IMG.infectedSpeaker;
+            else if(currentChar.id === 'guardian') nSkin = IMG.infectedGuardian;
+            
+            playerImg.src = nSkin;
+            playerWrap.classList.remove('shaking');
+            
+            setTimeout(()=>{ location.reload(); }, 4000);
+        }, 500);
+    }, 500);
+}
+
+function isDummyNearPlayer(dX){ 
+    let range = 14;
+    if(currentChar.id === 'strider') range = 25;
+    return Math.abs(playerX - dX) < range; 
+}
+
+function applyDummyDamage(dum, dmg){
+  dum.hp -= dmg;
+  if(dum.hp < 0) dum.hp = 0;
+  const ratio = dum.hp/dum.type.hp;
+  dum.hpBar.style.transform = `scaleX(${ratio})`;
+  if(dum.hp<=0 && dum.alive){ dummyDeath(dum); }
+}
+
+function knockDummy(dum){
   const power = tvKnifeMode ? -8 : -4;
-  dummyWrap.style.transition='transform .15s ease';
-  dummyWrap.style.transform = `translate(-50%,0) translateX(${power}px)`;
-  setTimeout(()=>{ dummyWrap.style.transform = `translate(-50%,0)`; }, 150);
+  dum.el.style.transition='transform .15s ease';
+  dum.el.style.transform = `translate(-50%,0) translateX(${power}px)`;
+  setTimeout(()=>{ dum.el.style.transform = `translate(-50%,0)`; }, 150);
 }
 
-function dummyDeath(){
-  dummyAlive = false;
-  dummyImg.style.transition='transform .4s ease, opacity .4s ease';
-  dummyImg.style.transform='rotate(85deg) translateY(20px)';
-  dummyImg.style.opacity='0.4';
+function dummyDeath(dum){
+  dum.alive = false;
+  dum.img.style.transition='transform .4s ease, opacity .4s ease';
+  dum.img.style.transform='rotate(85deg) translateY(20px)';
+  dum.img.style.opacity='0.4';
+  
+  updateMusicState();
+
+  if(isGrabbingDummy && grabbedDummyObj === dum) {
+      isGrabbingDummy = false; grabbedDummyObj = null; throwBtn.style.display = 'none';
+      document.getElementById('sfxScreamLoop').pause();
+      dum.el.classList.remove('dummy-grabbed'); dum.el.style.bottom = '22vh'; dum.el.style.zIndex='4';
+  }
+
   setTimeout(()=>{
-    dummyImg.style.transition='';
-    dummyImg.style.transform='';
-    dummyImg.style.opacity='1';
-    dummyHp = DUMMY_MAX_HP;
-    dummyHpBar.style.transform='scaleX(1)';
-    dummyAlive = true;
+    dum.el.remove();
+    activeDummies = activeDummies.filter(d => d !== dum);
+    updateMusicState();
   }, 5000);
 }
 
-/* ---- FX spawn helper ---- */
 function spawnFx(src, anchor, durationMs, sizePx, isCenter = false){
   const fx = document.createElement('img');
-  fx.src = src;
-  fx.style.position='absolute';
-  fx.style.left='50%';
-  
-  if (isCenter) {
-    fx.style.bottom = '50%';
-    fx.style.transform='translate(-50%, 50%)';
-  } else {
-    fx.style.bottom= '100%';
-    fx.style.transform='translate(-50%,10px)';
-  }
-  
-  fx.style.width = sizePx+'px';
-  fx.style.zIndex='9';
-  fx.style.opacity='0';
-  fx.style.transition='opacity .18s ease, transform .18s ease';
-  fx.style.pointerEvents='none';
+  fx.src = src; fx.style.position='absolute'; fx.style.left='50%';
+  if (isCenter) { fx.style.bottom = '50%'; fx.style.transform='translate(-50%, 50%)'; } 
+  else { fx.style.bottom= '100%'; fx.style.transform='translate(-50%,10px)'; }
+  fx.style.width = sizePx+'px'; fx.style.zIndex='9'; fx.style.opacity='0';
+  fx.style.transition='opacity .18s ease, transform .18s ease'; fx.style.pointerEvents='none';
   anchor.appendChild(fx);
   requestAnimationFrame(()=>{
     fx.style.opacity='1';
-    if(isCenter) {
-      fx.style.transform='translate(-50%, 40%)';
-    } else {
-      fx.style.transform='translate(-50%,-6px)';
-    }
+    if(isCenter) { fx.style.transform='translate(-50%, 50%)'; } 
+    else { fx.style.transform='translate(-50%,-6px)'; }
   });
-  setTimeout(()=>{
-    fx.style.opacity='0';
-    setTimeout(()=>{ fx.remove(); }, 200);
-  }, durationMs);
+  setTimeout(()=>{ fx.style.opacity='0'; setTimeout(()=>{ fx.remove(); }, 200); }, durationMs);
 }
 
 /* =========================================================
@@ -994,203 +1318,413 @@ function renderAbilities(ch){
   } else if(ch.id==='tvman'){
     abilityRow.appendChild(makeAbilityCube('HypnoScreen', 10000, useHypnoScreen));
     abilityRow.appendChild(makeTeleportCube());
+  } else if(ch.id==='guardian'){
+    abilityRow.appendChild(makeAbilityCube('Block', 6000, ()=>useBlock(20)));
+    abilityRow.appendChild(makeAbilityCube('Fire', 1000, useFire));
+  } else if(ch.id==='largetv'){
+    abilityRow.appendChild(makeAbilityCube('BlindScreen', 15000, useBlindScreen));
+    abilityRow.appendChild(makeAbilityCube('Grab', 10000, useGrab));
+    abilityRow.appendChild(makeAbilityCube('Block', 4000, ()=>useBlock(40)));
+  } else if(ch.id==='strider'){
+    abilityRow.appendChild(makeAbilityCube('MusicWave', 25000, useMusicWave));
+    abilityRow.appendChild(makeAbilityCube('MegaSound', 60000, useMegaSoundWave));
+    abilityRow.appendChild(makeFailureModeCube());
   }
 }
 
 function makeAbilityCube(label, cooldownMs, onUse){
-  const cube = document.createElement('div');
-  cube.className='ability-cube';
-  const fill = document.createElement('div');
-  fill.className='fill';
-  const lbl = document.createElement('div');
-  lbl.className='lbl';
-  lbl.textContent = label;
-  cube.appendChild(fill);
-  cube.appendChild(lbl);
+  const cube = document.createElement('div'); cube.className='ability-cube';
+  const fill = document.createElement('div'); fill.className='fill';
+  const lbl = document.createElement('div'); lbl.className='lbl'; lbl.textContent = label;
+  cube.appendChild(fill); cube.appendChild(lbl);
   let onCd = false;
   cube.addEventListener('click', ()=>{
-    if(onCd || !canMove) return;
-    onCd = true;
-    onUse();
-    fill.style.transition='none';
-    fill.style.transform='scaleX(1)';
+    if(onCd || !canMove || isGrabbingDummy || !playerAlive) return;
+    onCd = true; onUse();
+    fill.style.transition='none'; fill.style.transform='scaleX(1)';
     requestAnimationFrame(()=>{
       fill.style.transition = `transform ${cooldownMs}ms linear, opacity ${cooldownMs}ms linear`;
-      fill.style.transform='scaleX(0)';
-      fill.style.opacity='0';
+      fill.style.transform='scaleX(0)'; fill.style.opacity='0';
     });
-    setTimeout(()=>{
-      onCd=false;
-      fill.style.opacity='0.85';
-    }, cooldownMs);
+    setTimeout(()=>{ onCd=false; fill.style.opacity='0.85'; }, cooldownMs);
   });
   return cube;
 }
 
 function makeTeleportCube(){
-  const cube = document.createElement('div');
-  cube.className='ability-cube';
-  const lbl = document.createElement('div');
-  lbl.className='lbl';
-  lbl.textContent='Teleport';
-  cube.appendChild(lbl);
+  const cube = document.createElement('div'); cube.className='ability-cube';
+  const lbl = document.createElement('div'); lbl.className='lbl'; lbl.textContent='Teleport'; cube.appendChild(lbl);
   let used = false;
   cube.addEventListener('click', ()=>{
-    if(used || !canMove) return;
-    used = true;
-    cube.classList.add('locked-red');
-    useTeleport();
+    if(used || !canMove || !playerAlive) return;
+    used = true; cube.classList.add('locked-red'); useTeleport();
   });
   return cube;
 }
 
-/* ---- SpeakerHare: SoundWave ---- */
+function makeFailureModeCube(){
+  const cube = document.createElement('div'); cube.className='ability-cube';
+  const lbl = document.createElement('div'); lbl.className='lbl'; lbl.textContent='FailureMode'; cube.appendChild(lbl);
+  let used = false;
+  cube.addEventListener('click', ()=>{
+    if(used || !canMove || !playerAlive) return;
+    used = true; cube.classList.add('locked-perm'); useFailureMode();
+  });
+  return cube;
+}
+
+/* Base Abilities */
 function useSoundWave(){
   playSfx(document.getElementById('sfxSoundWave'), 0.85);
   spawnFx(IMG.waveFx, playerWrap, 600, 90);
-  if(isPlayerNearDummy() && dummyAlive){
-    setTimeout(()=>{
-      applyDummyDamage(50);
-      knockDummy();
-    }, 150);
-  }
+  setTimeout(()=>{
+      activeDummies.forEach(dum => {
+          if(isDummyNearPlayer(dum.x) && dum.alive) { applyDummyDamage(dum, 50); knockDummy(dum); }
+      });
+  }, 150);
 }
 
-/* ---- SpeakerHare: MusicBoost ---- */
 function useMusicBoost(){
   playSfx(document.getElementById('sfxMusicBoost'), 0.85);
   spawnFx(IMG.musicBoostFx, playerWrap, 500, 90);
-  speedBoostActive = true;
-  clearTimeout(speedBoostTimeout);
+  speedBoostActive = true; clearTimeout(speedBoostTimeout);
   speedBoostTimeout = setTimeout(()=>{ speedBoostActive = false; }, 11000);
 }
 
-/* ---- TvHare: HypnoScreen ---- */
 function useHypnoScreen(){
   playSfx(document.getElementById('sfxHypno'), 0.85);
-  flashHypno();
-  spawnFx(IMG.tvEffect, playerWrap, 120, 90);
-  addTvLight();
-  canMove = false;
-  playerWrap.classList.add('shaking');
+  flashHypno(); spawnFx(IMG.tvEffect, playerWrap, 120, 90, true); addTvLight();
+  canMove = false; playerWrap.classList.add('shaking');
 
-  let dmgInterval = null;
-  if(dummyAlive){
-    dmgInterval = setInterval(()=>{
-      if(isPlayerNearDummy() && facing===1 && dummyAlive){
-        applyDummyDamage(10);
-      }
-    }, 350);
-  }
+  let dmgInterval = setInterval(()=>{
+      activeDummies.forEach(dum => {
+          if(!dum.alive || dum.type.immune) return;
+          const isFacingDummy = (playerX < dum.x && facing===1) || (playerX > dum.x && facing===-1);
+          if(isDummyNearPlayer(dum.x) && isFacingDummy) { applyDummyDamage(dum, 10); }
+      });
+  }, 350);
 
   setTimeout(()=>{
-    clearInterval(dmgInterval);
-    flashHypno();
-    removeTvLight();
-    playerWrap.classList.remove('shaking');
-    canMove = true;
+    clearInterval(dmgInterval); flashHypno(); removeTvLight();
+    playerWrap.classList.remove('shaking'); canMove = true;
   }, 6000);
 }
+
 function flashHypno(){
-  hypnoOverlay.style.transition='opacity .02s ease';
-  hypnoOverlay.style.opacity='0.85';
-  setTimeout(()=>{
-    hypnoOverlay.style.transition='opacity .3s ease';
-    hypnoOverlay.style.opacity='0';
-  }, 20);
+  hypnoOverlay.style.transition='opacity .02s ease'; hypnoOverlay.style.opacity='0.85';
+  setTimeout(()=>{ hypnoOverlay.style.transition='opacity .3s ease'; hypnoOverlay.style.opacity='0'; }, 20);
 }
 let tvLightEl = null;
 function addTvLight(){
-  tvLightEl = document.createElement('img');
-  tvLightEl.src = IMG.tvLight;
-  tvLightEl.style.position='absolute';
-  tvLightEl.style.left='50%';
-  tvLightEl.style.bottom='20%';
-  tvLightEl.style.transform='translateX(-50%)';
-  tvLightEl.style.width='140px';
-  tvLightEl.style.opacity='0';
-  tvLightEl.style.transition='opacity .3s ease';
-  tvLightEl.style.zIndex='3';
-  tvLightEl.style.pointerEvents='none';
-  playerWrap.appendChild(tvLightEl);
-  requestAnimationFrame(()=>{ tvLightEl.style.opacity='0.9'; });
+  removeTvLight();
+  tvLightEl = document.createElement('img'); tvLightEl.src = IMG.tvLight; tvLightEl.style.position='absolute';
+  tvLightEl.style.left='50%'; tvLightEl.style.bottom='50%'; tvLightEl.style.transform='translate(-50%, 50%)';
+  tvLightEl.style.width='140px'; tvLightEl.style.opacity='0'; tvLightEl.style.transition='opacity .3s ease';
+  tvLightEl.style.zIndex='3'; tvLightEl.style.pointerEvents='none';
+  playerWrap.appendChild(tvLightEl); requestAnimationFrame(()=>{ tvLightEl.style.opacity='0.9'; });
 }
 function removeTvLight(){
   if(tvLightEl){
-    tvLightEl.style.opacity='0';
-    const el = tvLightEl;
-    setTimeout(()=>el.remove(), 300);
-    tvLightEl = null;
+    tvLightEl.style.opacity='0'; const el = tvLightEl;
+    setTimeout(()=>{ if(el && el.parentNode) el.remove(); }, 300); tvLightEl = null;
   }
 }
 
-/* ---- TvHare: Teleport ---- */
 function useTeleport(){
-  playSfx(document.getElementById('sfxTeleport'), 0.85);
-  canMove = false;
-  const smoke = document.createElement('img');
-  smoke.src = IMG.tvTeleport;
-  smoke.style.position='absolute';
-  smoke.style.left='50%'; smoke.style.bottom='0';
-  smoke.style.transform='translate(-50%,0) scale(0.7)';
-  smoke.style.width='140px';
-  smoke.style.opacity='0';
-  smoke.style.transition='opacity .4s ease, transform .4s ease';
-  smoke.style.zIndex='9';
-  smoke.style.pointerEvents='none';
+  playSfx(document.getElementById('sfxTeleport'), 0.85); canMove = false;
+  const smoke = document.createElement('img'); smoke.src = IMG.tvTeleport;
+  smoke.style.position='absolute'; smoke.style.left='50%'; smoke.style.bottom='0';
+  smoke.style.transform='translate(-50%,0) scale(0.7)'; smoke.style.width='140px'; smoke.style.opacity='0';
+  smoke.style.transition='opacity .4s ease, transform .4s ease'; smoke.style.zIndex='9'; smoke.style.pointerEvents='none';
   playerWrap.appendChild(smoke);
-  requestAnimationFrame(()=>{
-    smoke.style.opacity='1';
-    smoke.style.transform='translate(-50%,0) scale(1)';
-  });
+  requestAnimationFrame(()=>{ smoke.style.opacity='1'; smoke.style.transform='translate(-50%,0) scale(1)'; });
 
+  setTimeout(()=>{ playerImg.style.opacity='0'; }, 2000);
   setTimeout(()=>{
-    playerImg.style.opacity='0';
-  }, 2000);
-
-  setTimeout(()=>{
-    playerImg.src = IMG.tvmanKnifeModel;
-    playerImg.style.transition='opacity .4s ease';
-    playerImg.style.opacity='1';
-    tvKnifeMode = true;
-    smoke.style.opacity='0';
-    setTimeout(()=>smoke.remove(), 400);
-    canMove = true;
+    playerImg.src = IMG.tvmanKnifeModel; playerImg.style.transition='opacity .4s ease'; playerImg.style.opacity='1';
+    tvKnifeMode = true; smoke.style.opacity='0'; setTimeout(()=>smoke.remove(), 400); canMove = true;
   }, 3000);
+}
+
+function useBlock(dmg = 20){
+  blockActive = true;
+  playerImg.style.transition='filter .04s ease'; playerImg.style.filter='brightness(100)';
+  setTimeout(()=>{ playerImg.style.transition='filter .18s ease'; playerImg.style.filter='none'; }, 300);
+  setTimeout(()=>{ blockActive = false; }, 300);
+}
+
+function useFire(){
+  playSfx(document.getElementById('sfxFire'), 0.9);
+  fireFlashOverlay.style.transition='opacity .02s ease'; fireFlashOverlay.style.opacity='0.85';
+  setTimeout(()=>{ fireFlashOverlay.style.transition='opacity .12s ease'; fireFlashOverlay.style.opacity='0'; }, 70);
+  spawnBullet();
+}
+function spawnBullet(){
+  const bullet = document.createElement('img'); bullet.src = IMG.bulletFx; bullet.className='bullet-fx'; bullet.style.transform = `scaleX(${facing})`;
+  bullet.style.left = playerX + '%'; arena.appendChild(bullet);
+
+  let targetDum = null;
+  for(let i=0; i<activeDummies.length; i++) {
+      let d = activeDummies[i];
+      const isFacing = (playerX < d.x && facing === 1) || (playerX > d.x && facing === -1);
+      if(d.alive && isFacing) { targetDum = d; break; }
+  }
+
+  let targetX = targetDum ? targetDum.x : (facing === 1 ? ARENA_MAX_X + 10 : ARENA_MIN_X - 10);
+  const durationMs = 220;
+  bullet.style.transition = `left ${durationMs}ms linear`;
+  requestAnimationFrame(()=>{ bullet.style.left = targetX + '%'; });
+
+  setTimeout(()=>{
+    if(targetDum && targetDum.alive){ 
+        spawnBulletHit(targetDum); 
+        let wasAlive = targetDum.alive;
+        applyDummyDamage(targetDum, 90); 
+        
+        if(wasAlive && targetDum.hp <= 0) { playSfx(document.getElementById('sfxGuardianKill'), 1); } 
+        else if(wasAlive) { playSfx(document.getElementById('sfxGuardianHit'), 1); }
+        knockDummy(targetDum); 
+    }
+    bullet.remove();
+  }, durationMs);
+}
+function spawnBulletHit(dum){
+  const hit = document.createElement('img'); hit.src = IMG.bulletHitFx; hit.className='bullet-hit-fx'; hit.style.opacity='1';
+  dum.el.appendChild(hit);
+  setTimeout(()=>{ hit.style.transition='opacity .05s ease'; hit.style.opacity='0'; setTimeout(()=>hit.remove(), 80); }, 70);
+}
+
+/* LargeTvHare НОВЫЕ СПОСОБНОСТИ */
+function useGrab(){
+    if(isGrabbingDummy) return;
+    
+    let closestDum = null; let minD = 999;
+    activeDummies.forEach(d => {
+        if(!d.alive) return;
+        let dist = Math.abs(playerX - d.x);
+        if(dist < 14 && dist < minD) { minD = dist; closestDum = d; }
+    });
+
+    if(closestDum) {
+        playSfx(document.getElementById('sfxGrabHit'), 1);
+        isGrabbingDummy = true; grabbedDummyObj = closestDum;
+        
+        playerImg.style.transition = 'transform .15s ease';
+        playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) rotate(10deg)`;
+        setTimeout(() => {
+            playerImg.style.transform = `scaleX(${facing}) scale(${baseScale})`;
+            setTimeout(() => { playerImg.style.transition = ''; }, 150);
+        }, 150);
+
+        closestDum.el.style.transition = 'bottom 0.15s ease-out, left 0.15s ease-out';
+        closestDum.el.style.bottom = '30vh'; 
+        closestDum.el.style.left = playerX + '%'; 
+        closestDum.el.style.zIndex = '6';
+        closestDum.el.classList.add('dummy-grabbed');
+        
+        setTimeout(() => {
+            if(isGrabbingDummy && grabbedDummyObj) grabbedDummyObj.el.style.transition = 'none';
+        }, 150);
+        
+        const scream = document.getElementById('sfxScreamLoop');
+        scream.currentTime = 0; scream.play().catch(()=>{});
+
+        throwBtn.style.display = 'flex';
+    } else {
+        playSfx(document.getElementById('sfxGrabMiss'), 1);
+    }
+}
+
+throwBtn.addEventListener('click', () => {
+    if(!isGrabbingDummy || !grabbedDummyObj) return;
+    throwBtn.style.display = 'none';
+    
+    let dum = grabbedDummyObj;
+    isGrabbingDummy = false; grabbedDummyObj = null;
+
+    const scream = document.getElementById('sfxScreamLoop');
+    scream.pause(); scream.currentTime = 0;
+
+    playerImg.style.transition = 'transform .15s ease';
+    playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) rotate(-15deg)`;
+    
+    setTimeout(() => {
+        playerImg.style.transform = `scaleX(${facing}) scale(${baseScale}) rotate(25deg)`;
+        playSfx(document.getElementById('sfxThrow'), 1);
+        
+        let targetX = playerX + (facing * 25);
+        if(targetX < 2) targetX = 2;
+        if(targetX > 98) targetX = 98;
+
+        dum.el.style.transition = 'left 0.2s linear, bottom 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53)';
+        dum.x = targetX;
+        dum.el.style.left = targetX + '%';
+        dum.el.style.bottom = '22vh';
+        dum.el.style.zIndex = '4';
+        dum.el.classList.remove('dummy-grabbed');
+
+        setTimeout(() => {
+            playerImg.style.transform = `scaleX(${facing}) scale(${baseScale})`;
+            playerImg.style.transition = '';
+
+            playSfx(document.getElementById('sfxThrowHitGround'), 1);
+            spawnFx(IMG.hitSmoke, dum.el, 120, 80, true);
+            
+            applyDummyDamage(dum, 255); 
+        }, 200);
+
+    }, 150);
+});
+
+function useBlindScreen() {
+    playSfx(document.getElementById('sfxBlindScreen'), 1);
+    
+    const blindOver = document.getElementById('blindOverlay');
+    blindOver.style.transition = 'none'; blindOver.style.opacity = '1';
+    setTimeout(() => {
+        blindOver.style.transition = 'opacity 2s ease-in'; blindOver.style.opacity = '0';
+    }, 2000);
+
+    canMove = false; playerImg.classList.add('large-tv-on'); playerWrap.classList.add('shaking');
+
+    let blindHits = 0;
+    const blindInterval = setInterval(() => {
+        activeDummies.forEach(d => {
+            if(!d.alive || d.type.immune) return;
+            const isFacing = (d === grabbedDummyObj) || (playerX < d.x && facing === 1) || (playerX > d.x && facing === -1);
+            if(isFacing) {
+                applyDummyDamage(d, 50);
+                d.el.classList.add('shaking');
+                setTimeout(() => d.el.classList.remove('shaking'), 200);
+            }
+        });
+        
+        blindHits++;
+        if(blindHits >= 24) { 
+            clearInterval(blindInterval);
+            canMove = true; playerImg.classList.remove('large-tv-on'); playerWrap.classList.remove('shaking');
+        }
+    }, 330);
+}
+
+/* SPEAKER STRIDER HARE НОВЫЕ СПОСОБНОСТИ */
+
+function triggerBlur(duration) {
+    const blurOver = document.getElementById('blurOverlay');
+    blurOver.style.transition = 'opacity .05s ease'; blurOver.style.opacity = '1';
+    setTimeout(() => { blurOver.style.transition = 'opacity .4s ease'; blurOver.style.opacity = '0'; }, duration);
+}
+
+function triggerRedFlash() {
+    const blindOver = document.getElementById('blindOverlay');
+    blindOver.style.background = 'red'; blindOver.style.transition = 'none'; blindOver.style.opacity = '1';
+    setTimeout(() => { blindOver.style.transition = 'opacity .1s ease'; blindOver.style.opacity = '0'; setTimeout(() => blindOver.style.background = '#fff', 100); }, 60);
+}
+
+/* БАГ 3 ФИКС: Хитбокс MusicWave на всю карту */
+function useMusicWave() {
+    canMove = false; triggerBlur(500);
+    
+    setTimeout(() => {
+        arena.classList.add('screen-shake'); playerWrap.classList.add('shaking');
+        playSfx(document.getElementById('sfxMusicWave'), 1);
+        
+        let mult = failureModeActive ? 2 : 1;
+        
+        activeDummies.forEach(d => {
+            if(!d.alive) return;
+            d.el.style.transition='transform .15s ease';
+            d.el.style.transform = `translate(-50%,0) translateX(${facing * 20}px)`;
+            setTimeout(()=>{ d.el.style.transform = `translate(-50%,0)`; }, 300);
+            applyDummyDamage(d, 590 * mult);
+        });
+
+        let ticks = 0;
+        const waveInt = setInterval(() => {
+            activeDummies.forEach(d => { if(d.alive) applyDummyDamage(d, 20 * mult); });
+            ticks++;
+            if(ticks >= 16) { 
+                clearInterval(waveInt); arena.classList.remove('screen-shake'); playerWrap.classList.remove('shaking'); canMove = true;
+            }
+        }, 500);
+    }, 500);
+}
+
+/* БАГ 3 ФИКС: Хитбокс MegaSoundWave на всю карту */
+function useMegaSoundWave() {
+    canMove = false; triggerBlur(500);
+    
+    setTimeout(() => {
+        arena.classList.add('screen-shake-mega'); playerWrap.classList.add('shaking');
+        playSfx(document.getElementById('sfxMegaSoundWave'), 1);
+        
+        let mult = failureModeActive ? 2 : 1;
+
+        activeDummies.forEach(d => {
+            if(!d.alive) return;
+            applyDummyDamage(d, 1000 * mult);
+            d.el.style.transition = 'bottom 0.5s ease-out'; d.el.style.bottom = '60vh';
+            setTimeout(() => {
+                d.el.style.transition = 'bottom 1s cubic-bezier(0.5, 0, 1, 1)'; d.el.style.bottom = '22vh';
+                setTimeout(() => { d.el.style.transition = 'none'; if(d.alive) playSfx(document.getElementById('sfxThrowHitGround'), 0.8); }, 1000);
+            }, 500);
+        });
+
+        let ticks = 0;
+        const waveInt = setInterval(() => {
+            activeDummies.forEach(d => { if(d.alive) applyDummyDamage(d, 100 * mult); });
+            ticks++;
+            if(ticks >= 26) { 
+                clearInterval(waveInt); arena.classList.remove('screen-shake-mega'); playerWrap.classList.remove('shaking'); canMove = true;
+            }
+        }, 300);
+    }, 500);
+}
+
+function useFailureMode() {
+    triggerBlur(300); playSfx(document.getElementById('sfxFailureStart'), 1);
+    setTimeout(() => {
+        triggerRedFlash();
+        setTimeout(() => {
+            failureModeActive = true;
+            const failureOverlay = document.getElementById('failureOverlay');
+            failureOverlay.classList.add('failure-noise'); failureOverlay.style.opacity = '1';
+            arena.classList.add('screen-shake');
+            
+            const failureMusic = document.getElementById('sfxFailureMusic');
+            failureMusic.currentTime = 0; failureMusic.play().catch(()=>{});
+
+            setTimeout(() => {
+                triggerRedFlash();
+                setTimeout(() => {
+                    failureModeActive = false; failureOverlay.style.opacity = '0';
+                    failureOverlay.classList.remove('failure-noise'); arena.classList.remove('screen-shake');
+                    failureMusic.pause(); playSfx(document.getElementById('sfxFailureEnd'), 1);
+                }, 60);
+            }, 35000);
+
+        }, 60);
+    }, 3000);
 }
 
 /* =========================================================
    SCRAP GAIN OVER TIME
 ========================================================= */
-function startPlaytimeTimer(){
-  stopPlaytimeTimer();
-  playtimeInterval = setInterval(()=>{
-    state.scraps += 1;
-    updateScrapDisplays();
-    showFloatingScrap();
-  }, 60000);
-}
-function stopPlaytimeTimer(){
-  if(playtimeInterval){ clearInterval(playtimeInterval); playtimeInterval = null; }
-}
+function startPlaytimeTimer(){ stopPlaytimeTimer(); playtimeInterval = setInterval(()=>{ state.scraps += 1; updateScrapDisplays(); showFloatingScrap(); }, 60000); }
+function stopPlaytimeTimer(){ if(playtimeInterval){ clearInterval(playtimeInterval); playtimeInterval = null; } }
 
 function showFloatingScrap(){
-  const el = document.createElement('div');
-  el.className='float-scrap-text';
-  el.textContent='+1 Скрэп';
-  arena.appendChild(el);
-  el.style.transition='opacity .4s ease, transform 2.5s ease';
-  requestAnimationFrame(()=>{
-    el.style.opacity='1';
-    el.style.transform='translate(-50%,-90px)';
-  });
-  setTimeout(()=>{
-    el.style.opacity='0';
-  }, 2100);
-  setTimeout(()=>{ el.remove(); }, 2600);
+  const el = document.createElement('div'); el.className='float-scrap-text'; el.textContent='+1 Скрэп';
+  arena.appendChild(el); el.style.transition='opacity .4s ease, transform 2.5s ease';
+  requestAnimationFrame(()=>{ el.style.opacity='1'; el.style.transform='translate(-50%,-90px)'; });
+  setTimeout(()=>{ el.style.opacity='0'; }, 2100); setTimeout(()=>{ el.remove(); }, 2600);
 }
 
-document.addEventListener('touchmove', (e)=>{ e.preventDefault(); }, {passive:false});
+document.addEventListener('touchmove', (e)=>{
+  if (e.target.closest('#logsBox') || e.target.closest('#infoBox') || e.target.closest('.select-frame') || e.target.closest('#spawnPanelBox')) { return; }
+  e.preventDefault();
+}, {passive:false});
 </script>
 </body>
 </html>
+
